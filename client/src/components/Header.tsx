@@ -12,7 +12,6 @@ export default function Header() {
     { key: 'nav.home', href: '/' },
     { key: 'nav.products', href: '/products' },
     { key: 'nav.about', href: '/about' },
-    { key: 'nav.contact', href: '/contact' },
   ];
 
   return (
