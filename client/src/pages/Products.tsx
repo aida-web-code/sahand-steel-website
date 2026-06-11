@@ -1,57 +1,12 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
+import { productCategories } from '@/lib/products';
+import { useState } from 'react';
 
 export default function Products() {
   const { t, language, isRTL } = useLanguage();
-
-  const products = [
-    {
-      id: 'chrome-plated-bar',
-      name: t('product.chromePlatedBar'),
-      description: language === 'fa'
-        ? 'میله‌های فولادی با روکش کروم سخت برای کاربردهای صنعتی'
-        : 'Steel bars with hard chrome plating for industrial applications',
-      specs: ['10-100mm', 'Custom Length', '0.5-1.5mm Chrome', 'ISO/ASTM'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hero-chrome-bars-46HBD8CLvQy8N5Z5Hogj8q.webp',
-    },
-    {
-      id: 'chrome-plated-tube',
-      name: t('product.chromePlatedTube'),
-      description: language === 'fa'
-        ? 'لوله‌های فولادی با روکش کروم سخت برای سیستم‌های هیدرولیکی'
-        : 'Steel tubes with hard chrome plating for hydraulic systems',
-      specs: ['20-200mm', 'Custom Length', '0.5-1.5mm Chrome', 'ISO/ASTM'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hydraulic-system-EHVhKJhvQvfFMHyYxLkXQu.webp',
-    },
-    {
-      id: 'piston-rod',
-      name: t('product.pistonRod'),
-      description: language === 'fa'
-        ? 'میله‌های پیستون با کیفیت بالا برای سیلندرهای هیدرولیکی'
-        : 'High-quality piston rods for hydraulic cylinders',
-      specs: ['8-80mm', 'Custom Length', 'Chrome Plated', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/steel-warehouse-8Tz4Dq6vvHfmNQKjXrH2Qm.webp',
-    },
-    {
-      id: 'linear-shaft',
-      name: t('product.linearShaft'),
-      description: language === 'fa'
-        ? 'شفت‌های خطی با دقت بالا برای کاربردهای صنعتی'
-        : 'High-precision linear shafts for industrial applications',
-      specs: ['6-100mm', 'Custom Length', 'Honed', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/manufacturing-facility-7mJQnHvKvqKjHqmQqKzfBc.webp',
-    },
-    {
-      id: 'honed-tube',
-      name: t('product.honedTube'),
-      description: language === 'fa'
-        ? 'لوله‌های هون‌شده برای سیستم‌های هیدرولیکی و پنوماتیکی'
-        : 'Honed tubes for hydraulic and pneumatic systems',
-      specs: ['20-200mm', 'Custom Length', 'Honed Surface', 'ISO/ASTM'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/quality-inspection-LXDSSjAGNKKE7EsDnBQeXx.webp',
-    },
-  ];
+  const [expandedCategory, setExpandedCategory] = useState<string | null>('chrome-plated-bars');
 
   return (
     <div className="w-full">
@@ -77,92 +32,87 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Products Grid */}
+      {/* Products by Category */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                {/* Product Image */}
-                <div className="w-full h-48 bg-gray-100 overflow-hidden flex items-center justify-center border-b border-gray-200">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                {/* Product Info */}
-                <div className="p-6">
-                  <h3 className="text-lg font-bold mb-2 text-foreground">{product.name}</h3>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                    {product.description}
-                  </p>
-
-                  {/* Specs */}
-                  <div className="mb-6 space-y-2">
-                    {product.specs.map((spec, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                        <span className="text-muted-foreground">{spec}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* CTA Button */}
-                  <Button
-                    className="w-full bg-primary hover:bg-primary/90 text-white"
-                    onClick={() => window.location.href = `/products/${product.id}`}
-                  >
-                    {t('btn.learnMore')}
-                    <ArrowRight className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`} />
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Product Categories */}
-      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             {language === 'fa' ? 'دسته‌بندی محصولات' : 'Product Categories'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: language === 'fa' ? 'فولادهای کروم' : 'Chrome Steel',
-                desc: language === 'fa' ? 'میله‌ها و لوله‌های روکش کروم' : 'Chrome plated bars and tubes',
-              },
-              {
-                title: language === 'fa' ? 'لوله‌های هون‌شده' : 'Honed Tubes',
-                desc: language === 'fa' ? 'لوله‌های هون‌شده دقیق' : 'Precision honed tubes',
-              },
-              {
-                title: language === 'fa' ? 'میله‌های پیستون' : 'Piston Rods',
-                desc: language === 'fa' ? 'میله‌های پیستون هیدرولیکی' : 'Hydraulic piston rods',
-              },
-              {
-                title: language === 'fa' ? 'شفت‌های خطی' : 'Linear Shafts',
-                desc: language === 'fa' ? 'شفت‌های خطی دقیق' : 'Precision linear shafts',
-              },
-              {
-                title: language === 'fa' ? 'فولادهای الیاژی' : 'Alloy Steel',
-                desc: language === 'fa' ? 'فولادهای الیاژی خاص' : 'Special alloy steels',
-              },
-              {
-                title: language === 'fa' ? 'فولادهای ابزاری' : 'Tool Steel',
-                desc: language === 'fa' ? 'فولادهای ابزاری گرم و سرد' : 'Hot and cold tool steel',
-              },
-            ].map((category, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold mb-2 text-primary">{category.title}</h3>
-                <p className="text-muted-foreground text-sm">{category.desc}</p>
+
+          <div className="space-y-6">
+            {productCategories.map((category) => (
+              <div key={category.id} className="border border-gray-200 rounded-lg overflow-hidden">
+                {/* Category Header */}
+                <button
+                  onClick={() => setExpandedCategory(expandedCategory === category.id ? null : category.id)}
+                  className="w-full bg-gradient-to-r from-primary to-primary/90 text-white p-6 flex items-center justify-between hover:from-primary/90 hover:to-primary transition-colors"
+                >
+                  <div className="text-left">
+                    <h3 className="text-2xl font-bold">
+                      {language === 'fa' ? category.name : category.nameEn}
+                    </h3>
+                    <p className="text-white/90 mt-1">
+                      {language === 'fa' ? category.description : category.descriptionEn}
+                    </p>
+                  </div>
+                  <ChevronDown
+                    className={`w-6 h-6 flex-shrink-0 transition-transform ${
+                      expandedCategory === category.id ? 'rotate-180' : ''
+                    } ${isRTL ? 'mr-4' : 'ml-4'}`}
+                  />
+                </button>
+
+                {/* Subcategories */}
+                {expandedCategory === category.id && (
+                  <div className="bg-gray-50 p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {category.subcategories.map((subcategory) => (
+                        <div
+                          key={subcategory.id}
+                          className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                        >
+                          {/* Product Image */}
+                          <div className="w-full h-48 bg-gray-100 overflow-hidden flex items-center justify-center border-b border-gray-200">
+                            <img
+                              src={subcategory.image}
+                              alt={language === 'fa' ? subcategory.name : subcategory.nameEn}
+                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+
+                          {/* Product Info */}
+                          <div className="p-6">
+                            <h4 className="text-lg font-bold mb-2 text-foreground">
+                              {language === 'fa' ? subcategory.name : subcategory.nameEn}
+                            </h4>
+                            <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                              {language === 'fa' ? subcategory.description : subcategory.descriptionEn}
+                            </p>
+
+                            {/* Specs */}
+                            <div className="mb-6 space-y-2">
+                              {subcategory.specs.map((spec, idx) => (
+                                <div key={idx} className="flex items-center gap-2 text-sm">
+                                  <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                                  <span className="text-muted-foreground">{spec}</span>
+                                </div>
+                              ))}
+                            </div>
+
+                            {/* CTA Button */}
+                            <Button
+                              className="w-full bg-primary hover:bg-primary/90 text-white"
+                              onClick={() => window.location.href = `/products/${category.id}/${subcategory.id}`}
+                            >
+                              {t('btn.learnMore')}
+                              <ArrowRight className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`} />
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -170,7 +120,7 @@ export default function Products() {
       </section>
 
       {/* Quality Assurance */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
             {language === 'fa' ? 'تضمین کیفیت' : 'Quality Assurance'}
@@ -190,7 +140,7 @@ export default function Products() {
                 desc: language === 'fa' ? 'تمام گواهی‌نامه‌های معتبر' : 'All valid certificates',
               },
             ].map((item, index) => (
-              <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6">
                 <h3 className="text-lg font-bold mb-2 text-primary">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>

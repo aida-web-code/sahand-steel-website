@@ -1,10 +1,12 @@
-import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { productCategories } from '@/lib/products';
 
 export default function Header() {
   const { language, setLanguage, t, isRTL } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
 
   const navItems = [
     { key: 'nav.home', href: '/' },
@@ -33,7 +35,7 @@ export default function Header() {
             </a>
           </div>
           <div className="text-xs opacity-90">
-            {language === 'fa' ? 'تامین‌کننده جهانی فولاد صنعتی' : 'Global Industrial Steel Supplier'}
+            {language === 'fa' ? 'تامین‌کننده فولاد صنعتی ایران' : 'Iran Industrial Steel Supplier'}
           </div>
         </div>
       </div>
@@ -59,15 +61,38 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.key}
-                  href={item.href}
-                  className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded transition-all duration-200"
-                >
-                  {t(item.key)}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                if (item.key === 'nav.products') {
+                  return (
+                    <div key={item.key} className="relative group">
+                      <button className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded transition-all duration-200 flex items-center gap-1">
+                        {t(item.key)}
+                        <ChevronDown className="w-4 h-4" />
+                      </button>
+                      <div className="absolute left-0 mt-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        {productCategories.map((cat) => (
+                          <a
+                            key={cat.id}
+                            href={`/products#${cat.id}`}
+                            className="block px-4 py-3 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors"
+                          >
+                            {language === 'fa' ? cat.name : cat.nameEn}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+                return (
+                  <a
+                    key={item.key}
+                    href={item.href}
+                    className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded transition-all duration-200"
+                  >
+                    {t(item.key)}
+                  </a>
+                );
+              })}
             </nav>
 
             {/* Right Side: Language Switcher & CTA */}
@@ -122,16 +147,48 @@ export default function Header() {
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
             <nav className="lg:hidden border-t border-gray-200 py-4 space-y-2 mb-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.key}
-                  href={item.href}
-                  className="block px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {t(item.key)}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                if (item.key === 'nav.products') {
+                  return (
+                    <div key={item.key}>
+                      <button
+                        onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
+                        className="w-full text-left px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded transition-colors flex items-center justify-between"
+                      >
+                        {t(item.key)}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${productsDropdownOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                      {productsDropdownOpen && (
+                        <div className="bg-gray-50 space-y-1 mt-2 rounded">
+                          {productCategories.map((cat) => (
+                            <a
+                              key={cat.id}
+                              href={`/products#${cat.id}`}
+                              className="block px-6 py-2 text-sm text-foreground hover:text-primary hover:bg-gray-100 rounded transition-colors"
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setProductsDropdownOpen(false);
+                              }}
+                            >
+                              {language === 'fa' ? cat.name : cat.nameEn}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+                return (
+                  <a
+                    key={item.key}
+                    href={item.href}
+                    className="block px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {t(item.key)}
+                  </a>
+                );
+              })}
               <a
                 href="/contact"
                 className="block px-4 py-2.5 bg-primary text-white text-sm font-semibold rounded transition-colors text-center"
