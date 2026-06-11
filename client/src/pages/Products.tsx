@@ -13,6 +13,7 @@ export default function Products() {
         ? 'میله‌های فولادی با روکش کروم سخت برای کاربردهای صنعتی'
         : 'Steel bars with hard chrome plating for industrial applications',
       specs: ['10-100mm', 'Custom Length', '0.5-1.5mm Chrome', 'ISO/ASTM'],
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hero-chrome-bars-46HBD8CLvQy8N5Z5Hogj8q.webp',
     },
     {
       id: 'chrome-plated-tube',
@@ -21,6 +22,7 @@ export default function Products() {
         ? 'لوله‌های فولادی با روکش کروم سخت برای سیستم‌های هیدرولیکی'
         : 'Steel tubes with hard chrome plating for hydraulic systems',
       specs: ['20-200mm', 'Custom Length', '0.5-1.5mm Chrome', 'ISO/ASTM'],
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hydraulic-system-EHVhKJhvQvfFMHyYxLkXQu.webp',
     },
     {
       id: 'piston-rod',
@@ -29,6 +31,7 @@ export default function Products() {
         ? 'میله‌های پیستون با کیفیت بالا برای سیلندرهای هیدرولیکی'
         : 'High-quality piston rods for hydraulic cylinders',
       specs: ['8-80mm', 'Custom Length', 'Chrome Plated', 'ISO 9001'],
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/steel-warehouse-8Tz4Dq6vvHfmNQKjXrH2Qm.webp',
     },
     {
       id: 'linear-shaft',
@@ -37,6 +40,7 @@ export default function Products() {
         ? 'شفت‌های خطی با دقت بالا برای کاربردهای صنعتی'
         : 'High-precision linear shafts for industrial applications',
       specs: ['6-100mm', 'Custom Length', 'Honed', 'ISO 9001'],
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/manufacturing-facility-7mJQnHvKvqKjHqmQqKzfBc.webp',
     },
     {
       id: 'honed-tube',
@@ -45,6 +49,7 @@ export default function Products() {
         ? 'لوله‌های هون‌شده برای سیستم‌های هیدرولیکی و پنوماتیکی'
         : 'Honed tubes for hydraulic and pneumatic systems',
       specs: ['20-200mm', 'Custom Length', 'Honed Surface', 'ISO/ASTM'],
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/quality-inspection-LXDSSjAGNKKE7EsDnBQeXx.webp',
     },
   ];
 
@@ -81,9 +86,13 @@ export default function Products() {
                 key={product.id}
                 className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
               >
-                {/* Product Image Placeholder */}
-                <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center border-b border-gray-200">
-                  <div className="text-6xl">🔧</div>
+                {/* Product Image */}
+                <div className="w-full h-48 bg-gray-100 overflow-hidden flex items-center justify-center border-b border-gray-200">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
 
                 {/* Product Info */}

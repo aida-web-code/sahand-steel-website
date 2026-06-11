@@ -167,7 +167,7 @@ export default function Applications() {
               { label: language === 'fa' ? 'صنایع مختلف' : 'Different Industries', value: '50+' },
               { label: language === 'fa' ? 'کاربردهای متنوع' : 'Diverse Applications', value: '200+' },
               { label: language === 'fa' ? 'مشتریان صنعتی' : 'Industrial Customers', value: '740+' },
-              { label: language === 'fa' ? 'کشورهای صادرات' : 'Export Countries', value: '45+' },
+              { label: language === 'fa' ? 'پروژه‌های ایران' : 'Iranian Projects', value: '450+' },
             ].map((stat, index) => (
               <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
                 <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>

@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Award, Globe, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Award, Zap } from 'lucide-react';
 
 export default function Home() {
   const { t, language, isRTL } = useLanguage();
@@ -18,28 +18,28 @@ export default function Home() {
       name: language === 'fa' ? 'لوله‌های سیلندری' : 'Chrome Plated Tube',
       desc: language === 'fa' ? 'لوله‌های سیلندری با روکش کروم' : 'Chrome plated cylinder tubes',
       specs: ['ID: 10-200mm', 'Wall: 1-5mm', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hero-chrome-bars-46HBD8CLvQy8N5Z5Hogj8q.webp',
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hydraulic-system-EHVhKJhvQvfFMHyYxLkXQu.webp',
     },
     {
       id: 'piston-rod',
       name: language === 'fa' ? 'میله‌های پیستون' : 'Piston Rod',
       desc: language === 'fa' ? 'میله‌های پیستون هیدرولیکی' : 'Hydraulic piston rods',
       specs: ['Diameter: 16-100mm', 'Chrome: 0.8-1.5mm', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hydraulic-system-EHVhKJhvQvfFMHyYxLkXQu.webp',
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/steel-warehouse-8Tz4Dq6vvHfmNQKjXrH2Qm.webp',
     },
     {
       id: 'linear-shaft',
       name: language === 'fa' ? 'شفت‌های خطی' : 'Linear Shaft',
       desc: language === 'fa' ? 'شفت‌های خطی دقیق' : 'Precision linear shafts',
       specs: ['Diameter: 6-50mm', 'Tolerance: ±0.005mm', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/steel-warehouse-8Tz4Dq6vvHfmNQKjXrH2Qm.webp',
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/manufacturing-facility-7mJQnHvKvqKjHqmQqKzfBc.webp',
     },
     {
       id: 'honed-tube',
       name: language === 'fa' ? 'لوله‌های هون‌شده' : 'Honed Tube',
       desc: language === 'fa' ? 'لوله‌های هون‌شده دقیق' : 'Precision honed tubes',
       specs: ['ID: 10-200mm', 'Ra: 0.2-0.8μm', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/manufacturing-facility-7mJQnHvKvqKjHqmQqKzfBc.webp',
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/quality-inspection-LXDSSjAGNKKE7EsDnBQeXx.webp',
     },
   ];
 
@@ -57,13 +57,13 @@ export default function Home() {
           <div className="text-center text-white max-w-4xl px-4 py-12">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               {language === 'fa'
-                ? 'تامین‌کننده جهانی فولاد صنعتی'
-                : 'Global Industrial Steel Supplier'}
+                ? 'تامین‌کننده فولاد صنعتی ایران'
+                : 'Iran Industrial Steel Supplier'}
             </h1>
             <p className="text-xl md:text-2xl mb-10 text-white/95 leading-relaxed max-w-3xl mx-auto">
               {language === 'fa'
-                ? 'میله‌های روکش کروم، لوله‌های سیلندری، میله‌های پیستون و شفت‌های خطی با کیفیت بین‌المللی برای صنایع جهان'
-                : 'Premium chrome plated bars, cylinder tubes, piston rods, and linear shafts for global industries'}
+                ? 'میله‌های روکش کروم، لوله‌های سیلندری، میله‌های پیستون و شفت‌های خطی با کیفیت بالا برای صنایع ایران'
+                : 'Premium chrome plated bars, cylinder tubes, piston rods, and linear shafts for Iranian industries'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -94,74 +94,11 @@ export default function Home() {
               { label: language === 'fa' ? 'سال تجربه' : 'Years Experience', value: '38+' },
               { label: language === 'fa' ? 'مشتری صنعتی' : 'Industrial Customers', value: '740+' },
               { label: language === 'fa' ? 'پروژه تکمیل شده' : 'Projects Completed', value: '450+' },
-              { label: language === 'fa' ? 'کشور صادرات' : 'Export Countries', value: '45+' },
+              { label: language === 'fa' ? 'تن تولید سالانه' : 'Annual Production (Tons)', value: '1200+' },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</div>
                 <p className="text-sm md:text-base text-white/90">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Global Supply & Export Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Globe className="w-8 h-8 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold">
-                {language === 'fa' ? 'صادرات جهانی' : 'Global Supply & Export'}
-              </h2>
-            </div>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {language === 'fa'
-                ? 'سهند فولاد به عنوان یک تامین‌کننده معتبر جهانی، محصولات خود را به بیش از 45 کشور در سراسر جهان صادر می‌کند'
-                : 'Sahand Steel, as a trusted global supplier, exports its products to over 45 countries worldwide'}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: language === 'fa' ? 'بازارهای صادراتی' : 'Export Markets',
-                items: [
-                  language === 'fa' ? 'آسیای میانه' : 'Central Asia',
-                  language === 'fa' ? 'خاورمیانه' : 'Middle East',
-                  language === 'fa' ? 'آسیای شرقی' : 'East Asia',
-                  language === 'fa' ? 'اروپا' : 'Europe',
-                ],
-              },
-              {
-                title: language === 'fa' ? 'صنایع هدف' : 'Target Industries',
-                items: [
-                  language === 'fa' ? 'هیدرولیک و پنوماتیک' : 'Hydraulic & Pneumatic',
-                  language === 'fa' ? 'خودروسازی' : 'Automotive',
-                  language === 'fa' ? 'ساختمان و معدن' : 'Construction & Mining',
-                  language === 'fa' ? 'ماشین‌آلات صنعتی' : 'Industrial Machinery',
-                ],
-              },
-              {
-                title: language === 'fa' ? 'مزایای صادراتی' : 'Export Advantages',
-                items: [
-                  language === 'fa' ? 'کیفیت بین‌المللی' : 'International Quality',
-                  language === 'fa' ? 'تحویل سریع' : 'Fast Delivery',
-                  language === 'fa' ? 'قیمت رقابتی' : 'Competitive Pricing',
-                  language === 'fa' ? 'پشتیبانی 24/7' : '24/7 Support',
-                ],
-              },
-            ].map((section, idx) => (
-              <div key={idx} className="bg-white border border-gray-200 rounded-lg p-8">
-                <h3 className="text-xl font-bold text-primary mb-6">{section.title}</h3>
-                <ul className="space-y-3">
-                  {section.items.map((item, itemIdx) => (
-                    <li key={itemIdx} className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -177,8 +114,8 @@ export default function Home() {
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {language === 'fa'
-                ? 'محصولات با کیفیت بین‌المللی برای صنایع مختلف'
-                : 'International quality products for various industries'}
+                ? 'محصولات با کیفیت بالا برای صنایع ایران'
+                : 'High-quality products for Iranian industries'}
             </p>
           </div>
 
@@ -242,7 +179,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: language === 'fa' ? 'کیفیت بین‌المللی' : 'International Quality',
+                title: language === 'fa' ? 'کیفیت بالا' : 'High Quality',
                 desc: language === 'fa'
                   ? 'تمام محصولات طبق استانداردهای ISO و بین‌المللی تولید می‌شوند'
                   : 'All products manufactured to ISO and international standards',
@@ -258,8 +195,8 @@ export default function Home() {
               {
                 title: language === 'fa' ? 'تحویل سریع' : 'Fast Delivery',
                 desc: language === 'fa'
-                  ? 'تحویل سریع و قابل اعتماد به سراسر جهان'
-                  : 'Fast and reliable delivery worldwide',
+                  ? 'تحویل سریع و قابل اعتماد در سراسر ایران'
+                  : 'Fast and reliable delivery throughout Iran',
                 icon: CheckCircle2,
               },
               {
@@ -277,11 +214,11 @@ export default function Home() {
                 icon: Zap,
               },
               {
-                title: language === 'fa' ? 'صادرات جهانی' : 'Global Export',
+                title: language === 'fa' ? 'تولید داخلی' : 'Domestic Production',
                 desc: language === 'fa'
-                  ? 'صادرات به بیش از 45 کشور جهان'
-                  : 'Export to more than 45 countries worldwide',
-                icon: Globe,
+                  ? 'تولید محلی برای بازار ایران'
+                  : 'Domestic production for Iranian market',
+                icon: CheckCircle2,
               },
             ].map((feature, index) => {
               const Icon = feature.icon;

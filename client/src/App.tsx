@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import FloatingBackToTop from "./components/FloatingBackToTop";
+import MobileBottomNav from "./components/MobileBottomNav";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
@@ -41,7 +42,7 @@ function Router() {
 
 function Layout() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen pb-20 md:pb-0">
       <Header />
       <main className="flex-1">
         <Router />
@@ -49,6 +50,7 @@ function Layout() {
       <Footer />
       <FloatingWhatsApp />
       <FloatingBackToTop />
+      <MobileBottomNav />
     </div>
   );
 }

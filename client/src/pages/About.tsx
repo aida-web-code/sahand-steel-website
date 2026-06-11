@@ -33,13 +33,13 @@ export default function About() {
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 {language === 'fa'
-                  ? 'سهند فولاد یکی از پیشرو‌ترین تامین‌کنندگان فولادهای صنعتی در منطقه است. با 38 سال تجربه، ما متخصص در تولید و تامین میله‌های روکش کروم، لوله‌های سیلندری، میله‌های پیستون و شفت‌های خطی برای صنایع مختلف هستیم.'
-                  : 'Sahand Steel is one of the leading industrial steel suppliers in the region. With 38 years of experience, we specialize in manufacturing and supplying chrome plated bars, cylinder tubes, piston rods, and linear shafts for various industries.'}
+                  ? 'سهند فولاد یکی از پیشرو‌ترین تامین‌کنندگان فولادهای صنعتی در ایران است. با 38 سال تجربه، ما متخصص در تولید و تامین میله‌های روکش کروم، لوله‌های سیلندری، میله‌های پیستون و شفت‌های خطی برای صنایع مختلف ایران هستیم.'
+                  : 'Sahand Steel is one of the leading industrial steel suppliers in Iran. With 38 years of experience, we specialize in manufacturing and supplying chrome plated bars, cylinder tubes, piston rods, and linear shafts for various Iranian industries.'}
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 {language === 'fa'
-                  ? 'تعهد ما به کیفیت، نوآوری و خدمات مشتری برتر ما را به انتخاب اول برای مشتریان در سراسر جهان تبدیل کرده است.'
-                  : 'Our commitment to quality, innovation, and excellent customer service has made us the first choice for customers worldwide.'}
+                  ? 'تعهد ما به کیفیت، نوآوری و خدمات مشتری برتر ما را به انتخاب اول برای مشتریان در سراسر ایران تبدیل کرده است.'
+                  : 'Our commitment to quality, innovation, and excellent customer service has made us the first choice for customers throughout Iran.'}
               </p>
             </div>
             <div className="bg-gray-100 rounded-lg overflow-hidden h-96 flex items-center justify-center">
@@ -64,8 +64,8 @@ export default function About() {
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {language === 'fa'
-                  ? 'فراهم‌کردن فولادهای صنعتی با کیفیت بین‌المللی برای صنایع مختلف و کمک به توسعه صنعت و تکنولوژی.'
-                  : 'Providing industrial steels with international quality standards for various industries and contributing to industrial and technological development.'}
+                  ? 'فراهم‌کردن فولادهای صنعتی با کیفیت بین‌المللی برای صنایع مختلف ایران و کمک به توسعه صنعت و تکنولوژی کشور.'
+                  : 'Providing industrial steels with international quality standards for various Iranian industries and contributing to Iran\'s industrial and technological development.'}
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-8">
@@ -75,8 +75,8 @@ export default function About() {
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {language === 'fa'
-                  ? 'تبدیل شدن به تامین‌کننده جهانی معتبر فولادهای صنعتی با کیفیت برتر و خدمات نوآورانه.'
-                  : 'Becoming a trusted global supplier of industrial steels with superior quality and innovative services.'}
+                  ? 'تبدیل شدن به تامین‌کننده معتبر فولادهای صنعتی در ایران با کیفیت برتر و خدمات نوآورانه.'
+                  : 'Becoming a trusted industrial steel supplier in Iran with superior quality and innovative services.'}
               </p>
             </div>
           </div>
