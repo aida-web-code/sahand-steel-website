@@ -43,46 +43,34 @@ export default function Quality() {
               <h3 className="text-2xl font-bold mb-6">
                 {language === 'fa' ? 'فرآیند بازرسی' : 'Inspection Process'}
               </h3>
-              <div className="space-y-4">
-                {[
-                  { step: '1', title: language === 'fa' ? 'دریافت مواد اولیه' : 'Raw Material Receiving', desc: language === 'fa' ? 'بررسی و تایید مواد اولیه' : 'Material verification and approval' },
-                  { step: '2', title: language === 'fa' ? 'تولید' : 'Production', desc: language === 'fa' ? 'کنترل در حین تولید' : 'In-process monitoring' },
-                  { step: '3', title: language === 'fa' ? 'آزمایش نهایی' : 'Final Testing', desc: language === 'fa' ? 'آزمایش‌های جامع نهایی' : 'Comprehensive final testing' },
-                  { step: '4', title: language === 'fa' ? 'بسته‌بندی و ارسال' : 'Packaging & Shipping', desc: language === 'fa' ? 'بسته‌بندی محفوظ و ارسال' : 'Safe packaging and delivery' },
-                  { step: '5', title: language === 'fa' ? 'استانداردهای دقالی ساختمانی' : 'Precision Manufacturing Standards', desc: language === 'fa' ? 'رعايت استانداردهای بين‌المللی' : 'Adherence to international standards' }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-primary text-white font-bold">
-                        {item.step}
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-foreground">{item.title}</h4>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p className="text-muted-foreground">
+                {language === 'fa'
+                  ? 'فرآیند بازرسی ما بر اساس استانداردهای بین‌المللی طراحی شده است.'
+                  : 'Our inspection process is designed according to international standards.'}
+              </p>
             </div>
 
-            {/* Testing Equipment */}
+            {/* Our Services */}
             <div>
               <h3 className="text-2xl font-bold mb-6">
-                {language === 'fa' ? 'تجهیزات آزمایشی' : 'Testing Equipment'}
+                {language === 'fa' ? 'سرویس های ما' : 'Our Services'}
               </h3>
               <div className="space-y-4">
                 {[
-                  language === 'fa' ? 'دستگاه آنالیز شیمیایی' : 'Chemical Analysis Equipment',
-                  language === 'fa' ? 'دستگاه آزمایش کشش' : 'Tensile Testing Machine',
-                  language === 'fa' ? 'دستگاه سختی‌سنج' : 'Hardness Tester',
-                  language === 'fa' ? 'دستگاه سطح‌سنج' : 'Surface Roughness Tester',
-                  language === 'fa' ? 'میکروسکوپ الکترونی' : 'Electron Microscope',
-                  language === 'fa' ? 'دستگاه اندازه‌گیری ابعادی' : 'Dimensional Measurement Device',
-                ].map((equipment, idx) => (
+                  language === 'fa' ? 'تهیه و توزیع فولاد های کربنی در مقاطع گرد و چهار گوش' : 'Supply & distribution of carbon steels in round and square sections',
+                  language === 'fa' ? 'تهیه و توزیع انواع فولاد های آلیاژی در مقاطع گرد،چهارگوش و سمانته ای' : 'Supply & distribution of alloy steels in round, square and cemented sections',
+                  language === 'fa' ? 'تهیه و توزیع فولادهای ابزاری گرمکار در مقاطع گرد ،چهار گوش و تسمه ای' : 'Supply & distribution of hot work tool steels in round, square and strip sections',
+                  language === 'fa' ? 'تهیه و توزیع فولاد های ابزاری سردکار در مقاطع گرد،چهار گوش و تسمه ای' : 'Supply & distribution of cold work tool steels in round, square and strip sections',
+                  language === 'fa' ? 'تهیه و توزیع فولاد های قالب پلاستیک در مقاطع تسمه ای' : 'Supply & distribution of plastic mold steels in strip sections',
+                  language === 'fa' ? 'تهیه و توزیع لوله های سیلندری (داخل سنگ خورده )جهت مصارف هیدرولیکی' : 'Supply & distribution of cylinder tubes (honed) for hydraulic applications',
+                  language === 'fa' ? 'تهیه و توزیع میله های فولادی روکش کروم سخت' : 'Supply & distribution of hard chrome plated steel rods',
+                  language === 'fa' ? 'تهیه و توزیع میله های فولادی اینداکشن شده روکش کروم سخت' : 'Supply & distribution of induction hardened hard chrome plated steel rods',
+                  language === 'fa' ? 'تهیه و توزیع لوله های فولادی روکش کروم سخت' : 'Supply & distribution of hard chrome plated steel tubes',
+                  language === 'fa' ? 'تهیه و توزیع ورق های ضدسایش هارد 400،450،500' : 'Supply & distribution of wear resistant hard plates 400, 450, 500',
+                ].map((service, idx) => (
                   <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{equipment}</span>
+                    <span className="text-foreground text-sm">{service}</span>
                   </div>
                 ))}
               </div>
