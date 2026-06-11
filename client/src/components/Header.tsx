@@ -25,7 +25,7 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <a href="tel:+989121234567" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Phone className="w-4 h-4" />
-              <span>+98 (912) 123-4567</span>
+              <span className="ltr-number">+98 (912) 123-4567</span>
             </a>
             <a href="mailto:info@sahandsteel.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="w-4 h-4" />

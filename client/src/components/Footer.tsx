@@ -56,8 +56,8 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="text-white/80">+98 21 6663 2876</div>
-                  <div className="text-white/80">+98 21 6663 2877</div>
+                  <div className="text-white/80 ltr-number">+98 (21) 6663-2876</div>
+                  <div className="text-white/80 ltr-number">+98 (21) 6663-2877</div>
                 </div>
               </div>
               <div className="flex items-start gap-2">

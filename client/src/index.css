@@ -235,4 +235,12 @@
   .btn-secondary {
     @apply bg-white border border-primary text-primary hover:bg-primary/5 px-6 py-3 rounded font-medium transition-colors;
   }
+
+  /* LTR Phone Numbers in RTL Context */
+  .ltr-number {
+    direction: ltr;
+    unicode-bidi: isolate;
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+  }
 }

@@ -59,9 +59,9 @@ export default function Contact() {
               </h3>
               <a
                 href="tel:+982166632876"
-                className="text-primary hover:underline font-semibold"
+                className="text-primary hover:underline font-semibold ltr-number"
               >
-                +98 21 6663 2876
+                +98 (21) 6663-2876
               </a>
             </div>
 
@@ -249,12 +249,12 @@ export default function Contact() {
                     : 'For urgent inquiries, you can reach us directly'}
                 </p>
                 <a
-                  href="https://wa.me/982166632876"
+                  href="https://wa.me/989121234567"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-white text-primary px-6 py-2 rounded font-semibold hover:bg-gray-100 transition-colors"
                 >
-                  WhatsApp
+                  {language === 'fa' ? 'ارتباط در واتساپ' : 'WhatsApp Inquiry'}
                 </a>
               </div>
             </div>

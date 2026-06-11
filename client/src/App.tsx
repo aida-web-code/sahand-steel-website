@@ -7,6 +7,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import FloatingBackToTop from "./components/FloatingBackToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
@@ -45,6 +47,8 @@ function Layout() {
         <Router />
       </main>
       <Footer />
+      <FloatingWhatsApp />
+      <FloatingBackToTop />
     </div>
   );
 }
