@@ -1,142 +1,196 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Award, FileText, Download } from 'lucide-react';
+import { Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Certificates() {
   const { t, language } = useLanguage();
 
-  const certificates = [
-    {
-      category: language === 'fa' ? 'گواهی‌نامه‌های ISO' : 'ISO Certificates',
-      items: [
-        { name: 'ISO 9001:2015', desc: language === 'fa' ? 'مدیریت کیفیت' : 'Quality Management' },
-        { name: 'ISO 14001:2015', desc: language === 'fa' ? 'مدیریت محیط‌زیست' : 'Environmental Management' },
-        { name: 'ISO 45001:2018', desc: language === 'fa' ? 'ایمنی و بهداشت کار' : 'Occupational Health & Safety' },
-      ],
-    },
-    {
-      category: language === 'fa' ? 'گواهی‌نامه‌های کیفیت' : 'Quality Certificates',
-      items: [
-        { name: language === 'fa' ? 'گواهی کیفیت مواد' : 'Material Quality Certificate', desc: language === 'fa' ? 'تایید کیفیت مواد اولیه' : 'Raw material quality verification' },
-        { name: language === 'fa' ? 'گواهی آزمایش' : 'Test Certificate', desc: language === 'fa' ? 'نتایج آزمایش‌های مکانیکی' : 'Mechanical test results' },
-        { name: language === 'fa' ? 'گواهی تطابق' : 'Conformance Certificate', desc: language === 'fa' ? 'تطابق با استانداردهای بین‌المللی' : 'International standards compliance' },
-      ],
-    },
-    {
-      category: language === 'fa' ? 'گواهی‌نامه‌های مواد' : 'Material Certificates',
-      items: [
-        { name: language === 'fa' ? 'گواهی آنالیز شیمیایی' : 'Chemical Analysis Report', desc: language === 'fa' ? 'تحلیل دقیق ترکیب شیمیایی' : 'Detailed chemical composition analysis' },
-        { name: language === 'fa' ? 'گواهی آزمایش فیزیکی' : 'Physical Test Report', desc: language === 'fa' ? 'نتایج آزمایش‌های فیزیکی' : 'Physical testing results' },
-        { name: language === 'fa' ? 'گواهی مبدا' : 'Certificate of Origin', desc: language === 'fa' ? 'مبدا و منشأ مواد' : 'Material origin and source' },
-      ],
-    },
-  ];
-
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-secondary text-secondary-foreground py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {t('nav.certificates')}
-          </h1>
-          <p className="text-lg opacity-90 max-w-3xl">
-            {language === 'fa'
-              ? 'تمام محصولات سهند فولاد دارای گواهی‌نامه‌های معتبر بین‌المللی هستند'
-              : 'All Sahand Steel products have valid international certificates'}
-          </p>
+      <section className="relative w-full h-80 md:h-96 overflow-hidden bg-gray-900">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold">
+              {t('nav.certificates')}
+            </h1>
+          </div>
         </div>
       </section>
 
-      {/* Certificates Grid */}
-      <section className="py-16 md:py-24 bg-background">
+      {/* Certificates Overview */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          {certificates.map((certGroup, groupIndex) => (
-            <div key={groupIndex} className="mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold mb-8 flex items-center gap-3">
-                <Award className="w-8 h-8 text-primary" />
-                {certGroup.category}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {certGroup.items.map((item, index) => (
-                  <div key={index} className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-                    <div className="flex items-start gap-4 mb-4">
-                      <FileText className="w-8 h-8 text-primary flex-shrink-0" />
-                      <div>
-                        <h3 className="font-bold text-lg">{item.name}</h3>
-                        <p className="text-sm text-muted-foreground">{item.desc}</p>
-                      </div>
-                    </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full"
-                      onClick={() => alert(language === 'fa' ? 'دانلود فایل...' : 'Downloading file...')}
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      {language === 'fa' ? 'دانلود' : 'Download'}
-                    </Button>
-                  </div>
-                ))}
-              </div>
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              {language === 'fa' ? 'گواهی‌نامه‌ها و استانداردها' : 'Certifications & Standards'}
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {language === 'fa'
+                ? 'تمام محصولات سهند فولاد دارای گواهی‌نامه‌های بین‌المللی و استانداردهای معتبر هستند'
+                : 'All Sahand Steel products have international certifications and valid standards'}
+            </p>
+          </div>
+
+          {/* ISO Certificates */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-primary">
+              {language === 'fa' ? 'گواهی‌نامه‌های ISO' : 'ISO Certificates'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  cert: 'ISO 9001:2015',
+                  title: language === 'fa' ? 'مدیریت کیفیت' : 'Quality Management',
+                  desc: language === 'fa' ? 'سیستم مدیریت کیفیت' : 'Quality management system',
+                },
+                {
+                  cert: 'ISO 14001:2015',
+                  title: language === 'fa' ? 'مدیریت محیط‌زیست' : 'Environmental Management',
+                  desc: language === 'fa' ? 'سیستم مدیریت محیط‌زیست' : 'Environmental management system',
+                },
+                {
+                  cert: 'ISO 45001:2018',
+                  title: language === 'fa' ? 'ایمنی و بهداشت' : 'Occupational Health & Safety',
+                  desc: language === 'fa' ? 'سیستم ایمنی و بهداشت شغلی' : 'Occupational health and safety system',
+                },
+              ].map((item, idx) => (
+                <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
+                  <Award className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h4 className="text-xl font-bold mb-2 text-primary">{item.cert}</h4>
+                  <p className="font-semibold text-foreground mb-2">{item.title}</p>
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Quality Certificates */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-primary">
+              {language === 'fa' ? 'گواهی‌نامه‌های کیفیت' : 'Quality Certificates'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  cert: 'ASTM',
+                  title: language === 'fa' ? 'استانداردهای آمریکایی' : 'American Standards',
+                  desc: language === 'fa' ? 'استانداردهای تست و مواد آمریکایی' : 'American testing and materials standards',
+                },
+                {
+                  cert: 'DIN',
+                  title: language === 'fa' ? 'استانداردهای آلمانی' : 'German Standards',
+                  desc: language === 'fa' ? 'استانداردهای صنعتی آلمانی' : 'German industrial standards',
+                },
+                {
+                  cert: 'EN',
+                  title: language === 'fa' ? 'استانداردهای اروپایی' : 'European Standards',
+                  desc: language === 'fa' ? 'استانداردهای اروپایی' : 'European standards',
+                },
+                {
+                  cert: 'JIS',
+                  title: language === 'fa' ? 'استانداردهای ژاپنی' : 'Japanese Standards',
+                  desc: language === 'fa' ? 'استانداردهای صنعتی ژاپنی' : 'Japanese industrial standards',
+                },
+                {
+                  cert: 'GB',
+                  title: language === 'fa' ? 'استانداردهای چینی' : 'Chinese Standards',
+                  desc: language === 'fa' ? 'استانداردهای صنعتی چینی' : 'Chinese industrial standards',
+                },
+                {
+                  cert: 'GOST',
+                  title: language === 'fa' ? 'استانداردهای روسی' : 'Russian Standards',
+                  desc: language === 'fa' ? 'استانداردهای صنعتی روسی' : 'Russian industrial standards',
+                },
+              ].map((item, idx) => (
+                <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
+                  <Award className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h4 className="text-xl font-bold mb-2 text-primary">{item.cert}</h4>
+                  <p className="font-semibold text-foreground mb-2">{item.title}</p>
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Material Certificates */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-primary">
+              {language === 'fa' ? 'گواهی‌نامه‌های مواد' : 'Material Certificates'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  cert: 'Mill Certificates',
+                  title: language === 'fa' ? 'گواهی‌نامه کارخانه' : 'Factory Certificates',
+                  desc: language === 'fa' ? 'گواهی‌نامه‌های مواد اولیه' : 'Raw material certificates',
+                },
+                {
+                  cert: 'Test Reports',
+                  title: language === 'fa' ? 'گزارش‌های آزمایش' : 'Test Reports',
+                  desc: language === 'fa' ? 'گزارش‌های آزمایش دقیق' : 'Detailed test reports',
+                },
+                {
+                  cert: 'Analysis Certificates',
+                  title: language === 'fa' ? 'گواهی‌نامه‌های آنالیز' : 'Analysis Certificates',
+                  desc: language === 'fa' ? 'گواهی‌نامه‌های آنالیز شیمیایی' : 'Chemical analysis certificates',
+                },
+              ].map((item, idx) => (
+                <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
+                  <Award className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h4 className="text-xl font-bold mb-2 text-primary">{item.cert}</h4>
+                  <p className="font-semibold text-foreground mb-2">{item.title}</p>
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Additional Info */}
-      <section className="py-16 md:py-24 bg-secondary/5">
+      {/* Certificate Details */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            {language === 'fa' ? 'درباره گواهی‌نامه‌ها' : 'About Our Certificates'}
+            {language === 'fa' ? 'جزئیات گواهی‌نامه‌ها' : 'Certificate Details'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-card border border-border rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4">
-                {language === 'fa' ? 'اعتبار بین‌المللی' : 'International Validity'}
-              </h3>
-              <p className="text-muted-foreground">
-                {language === 'fa'
-                  ? 'تمام گواهی‌نامه‌های ما توسط نهادهای بین‌المللی معتبر صادر شده‌اند و در سراسر جهان مورد تایید هستند.'
-                  : 'All our certificates are issued by recognized international bodies and are valid worldwide.'}
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4">
-                {language === 'fa' ? 'بروزرسانی منظم' : 'Regular Updates'}
-              </h3>
-              <p className="text-muted-foreground">
-                {language === 'fa'
-                  ? 'گواهی‌نامه‌های ما به طور منظم بروزرسانی و تجدید می‌شوند تا مطابقت با آخرین استانداردهای بین‌المللی را حفظ کنند.'
-                  : 'Our certificates are regularly updated and renewed to maintain compliance with latest international standards.'}
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4">
-                {language === 'fa' ? 'شفافیت کامل' : 'Full Transparency'}
-              </h3>
-              <p className="text-muted-foreground">
-                {language === 'fa'
-                  ? 'ما تمام گواهی‌نامه‌های خود را برای بررسی و تایید مشتریان در دسترس قرار می‌دهیم.'
-                  : 'We make all our certificates available for customer review and verification.'}
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4">
-                {language === 'fa' ? 'تضمین کیفیت' : 'Quality Guarantee'}
-              </h3>
-              <p className="text-muted-foreground">
-                {language === 'fa'
-                  ? 'هر محصول با گواهی‌نامه‌های مربوطه تحویل داده می‌شود و کیفیت آن تضمین شده است.'
-                  : 'Every product is delivered with relevant certificates and quality is guaranteed.'}
-              </p>
+          <div className="max-w-3xl mx-auto bg-white border border-gray-200 rounded-lg p-8">
+            <div className="space-y-6">
+              {[
+                {
+                  label: language === 'fa' ? 'سال اعتبار ISO 9001' : 'ISO 9001 Valid Since',
+                  value: '2015',
+                },
+                {
+                  label: language === 'fa' ? 'سال اعتبار ISO 14001' : 'ISO 14001 Valid Since',
+                  value: '2018',
+                },
+                {
+                  label: language === 'fa' ? 'سال اعتبار ISO 45001' : 'ISO 45001 Valid Since',
+                  value: '2020',
+                },
+                {
+                  label: language === 'fa' ? 'استانداردهای تایید شده' : 'Approved Standards',
+                  value: 'ASTM, DIN, EN, JIS, GB, GOST',
+                },
+                {
+                  label: language === 'fa' ? 'آخرین بازرسی' : 'Last Audit',
+                  value: language === 'fa' ? 'سال 1402' : '2024',
+                },
+              ].map((item, idx) => (
+                <div key={idx} className="flex justify-between items-center pb-4 border-b border-gray-200 last:border-0">
+                  <span className="font-semibold text-foreground">{item.label}</span>
+                  <span className="text-primary font-bold">{item.value}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Request Certificate */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             {language === 'fa' ? 'درخواست گواهی‌نامه' : 'Request Certificate'}

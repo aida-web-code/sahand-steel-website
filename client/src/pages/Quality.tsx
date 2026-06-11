@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { CheckCircle2, Zap, Award } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function Quality() {
   const { t, language } = useLanguage();
@@ -7,206 +7,218 @@ export default function Quality() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-secondary text-secondary-foreground py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {t('nav.quality')}
-          </h1>
-          <p className="text-lg opacity-90 max-w-3xl">
-            {language === 'fa'
-              ? 'کنترل کیفیت دقیق و جامع برای تمام محصولات'
-              : 'Comprehensive quality control for all products'}
-          </p>
+      <section className="relative w-full h-80 md:h-96 overflow-hidden bg-gray-900">
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/quality-inspection-LXDSSjAGNKKE7EsDnBQeXx.webp"
+          alt="Quality Control"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold">
+              {t('nav.quality')}
+            </h1>
+          </div>
         </div>
       </section>
 
-      {/* Quality Assurance Process */}
-      <section className="py-16 md:py-24 bg-background">
+      {/* Quality Overview */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            {language === 'fa' ? 'فرآیند کنترل کیفیت' : 'Quality Control Process'}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                step: '1',
-                title: language === 'fa' ? 'دریافت مواد اولیه' : 'Raw Material Reception',
-                description: language === 'fa'
-                  ? 'بررسی اولیه و تایید مواد اولیه'
-                  : 'Initial inspection and verification of raw materials',
-              },
-              {
-                step: '2',
-                title: language === 'fa' ? 'آنالیز شیمیایی' : 'Chemical Analysis',
-                description: language === 'fa'
-                  ? 'آنالیز دقیق ترکیب شیمیایی'
-                  : 'Precise analysis of chemical composition',
-              },
-              {
-                step: '3',
-                title: language === 'fa' ? 'آزمایش مکانیکی' : 'Mechanical Testing',
-                description: language === 'fa'
-                  ? 'آزمایش خواص مکانیکی و استحکام'
-                  : 'Testing mechanical properties and strength',
-              },
-              {
-                step: '4',
-                title: language === 'fa' ? 'بررسی نهایی' : 'Final Inspection',
-                description: language === 'fa'
-                  ? 'بررسی نهایی و تایید محصول'
-                  : 'Final inspection and product approval',
-              },
-            ].map((process, index) => (
-              <div key={index} className="bg-card border border-border rounded-lg p-6 text-center">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
-                  {process.step}
-                </div>
-                <h3 className="text-lg font-bold mb-2">{process.title}</h3>
-                <p className="text-muted-foreground text-sm">{process.description}</p>
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              {language === 'fa' ? 'کنترل کیفیت جامع' : 'Comprehensive Quality Control'}
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {language === 'fa'
+                ? 'تمام محصولات سهند فولاد تحت کنترل کیفیت دقیق و جامع قرار می‌گیرند تا بالاترین استانداردهای صنعتی برآورده شوند.'
+                : 'All Sahand Steel products undergo rigorous and comprehensive quality control to meet the highest industrial standards.'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Inspection Process */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6">
+                {language === 'fa' ? 'فرآیند بازرسی' : 'Inspection Process'}
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { step: '1', title: language === 'fa' ? 'دریافت مواد اولیه' : 'Raw Material Receiving', desc: language === 'fa' ? 'بررسی و تایید مواد اولیه' : 'Material verification and approval' },
+                  { step: '2', title: language === 'fa' ? 'تولید' : 'Production', desc: language === 'fa' ? 'کنترل در حین تولید' : 'In-process monitoring' },
+                  { step: '3', title: language === 'fa' ? 'آزمایش نهایی' : 'Final Testing', desc: language === 'fa' ? 'آزمایش‌های جامع نهایی' : 'Comprehensive final testing' },
+                  { step: '4', title: language === 'fa' ? 'بسته‌بندی و ارسال' : 'Packaging & Shipping', desc: language === 'fa' ? 'بسته‌بندی محفوظ و ارسال' : 'Safe packaging and delivery' },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-primary text-white font-bold">
+                        {item.step}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground">{item.title}</h4>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Testing Equipment */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6">
+                {language === 'fa' ? 'تجهیزات آزمایشی' : 'Testing Equipment'}
+              </h3>
+              <div className="space-y-4">
+                {[
+                  language === 'fa' ? 'دستگاه آنالیز شیمیایی' : 'Chemical Analysis Equipment',
+                  language === 'fa' ? 'دستگاه آزمایش کشش' : 'Tensile Testing Machine',
+                  language === 'fa' ? 'دستگاه سختی‌سنج' : 'Hardness Tester',
+                  language === 'fa' ? 'دستگاه سطح‌سنج' : 'Surface Roughness Tester',
+                  language === 'fa' ? 'میکروسکوپ الکترونی' : 'Electron Microscope',
+                  language === 'fa' ? 'دستگاه اندازه‌گیری ابعادی' : 'Dimensional Measurement Device',
+                ].map((equipment, idx) => (
+                  <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-foreground">{equipment}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testing Methods */}
-      <section className="py-16 md:py-24 bg-secondary/5">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            {language === 'fa' ? 'روش‌های آزمایش' : 'Testing Methods'}
+            {language === 'fa' ? 'روش‌های آزمایشی' : 'Testing Methods'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: language === 'fa' ? 'کنترل ضخامت کروم' : 'Chrome Thickness Control',
-                tests: [
-                  language === 'fa' ? 'اندازه‌گیری ضخامت کروم' : 'Chrome thickness measurement',
-                  language === 'fa' ? 'بررسی یکنواختی' : 'Uniformity verification',
-                  language === 'fa' ? 'آزمایش چسبندگی' : 'Adhesion testing',
-                  language === 'fa' ? 'بررسی سختی' : 'Hardness verification',
-                ],
+                title: language === 'fa' ? 'آنالیز شیمیایی' : 'Chemical Analysis',
+                desc: language === 'fa' ? 'تجزیه و تحلیل ترکیب شیمیایی' : 'Composition analysis',
               },
               {
-                title: language === 'fa' ? 'آزمایش زبری سطح' : 'Surface Roughness Testing',
-                tests: [
-                  language === 'fa' ? 'اندازه‌گیری زبری سطح' : 'Surface roughness measurement',
-                  language === 'fa' ? 'بررسی صاف‌بودن' : 'Smoothness verification',
-                  language === 'fa' ? 'آزمایش مقاومت سایش' : 'Wear resistance testing',
-                  language === 'fa' ? 'بررسی کیفیت سطح' : 'Surface quality check',
-                ],
+                title: language === 'fa' ? 'آزمایش کشش' : 'Tensile Test',
+                desc: language === 'fa' ? 'بررسی مقاومت و کشش' : 'Strength and elongation',
               },
               {
-                title: language === 'fa' ? 'آزمایش‌های مکانیکی' : 'Mechanical Tests',
-                tests: [
-                  language === 'fa' ? 'آزمایش کشش' : 'Tensile testing',
-                  language === 'fa' ? 'آزمایش فشار' : 'Compression testing',
-                  language === 'fa' ? 'آزمایش خمش' : 'Bending testing',
-                  language === 'fa' ? 'آزمایش سختی' : 'Hardness testing',
-                ],
+                title: language === 'fa' ? 'آزمایش سختی' : 'Hardness Test',
+                desc: language === 'fa' ? 'اندازه‌گیری سختی سطح' : 'Surface hardness measurement',
               },
               {
-                title: language === 'fa' ? 'آزمایش‌های شیمیایی' : 'Chemical Tests',
-                tests: [
-                  language === 'fa' ? 'آنالیز طیفی' : 'Spectral analysis',
-                  language === 'fa' ? 'آزمایش خوردگی' : 'Corrosion testing',
-                  language === 'fa' ? 'آنالیز ترکیب' : 'Composition analysis',
-                  language === 'fa' ? 'بررسی ناخالصی‌ها' : 'Impurity checking',
-                ],
+                title: language === 'fa' ? 'کنترل ابعادی' : 'Dimensional Control',
+                desc: language === 'fa' ? 'بررسی دقیق ابعاد' : 'Precise dimension checking',
+              },
+              {
+                title: language === 'fa' ? 'بررسی سطح' : 'Surface Inspection',
+                desc: language === 'fa' ? 'کنترل کیفیت سطح' : 'Surface quality control',
+              },
+              {
+                title: language === 'fa' ? 'آزمایش خوردگی' : 'Corrosion Test',
+                desc: language === 'fa' ? 'آزمایش مقاومت به خوردگی' : 'Corrosion resistance test',
               },
             ].map((method, index) => (
-              <div key={index} className="bg-card border border-border rounded-lg p-8">
-                <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <Award className="w-6 h-6 text-primary" />
-                  {method.title}
-                </h3>
-                <ul className="space-y-3">
-                  {method.tests.map((test, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{test}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2 text-primary">{method.title}</h3>
+                <p className="text-muted-foreground text-sm">{method.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Equipment */}
-      <section className="py-16 md:py-24 bg-background">
+      {/* Chrome Thickness Control */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            {language === 'fa' ? 'تجهیزات آزمایشی' : 'Testing Equipment'}
+            {language === 'fa' ? 'کنترل ضخامت کروم' : 'Chrome Thickness Control'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                name: language === 'fa' ? 'دستگاه اندازه‌گیری ضخامت' : 'Thickness Gauge',
-                description: language === 'fa'
-                  ? 'اندازه‌گیری دقیق ضخامت کروم'
-                  : 'Precise chrome thickness measurement',
-              },
-              {
-                name: language === 'fa' ? 'دستگاه زبری‌سنج' : 'Surface Roughness Tester',
-                description: language === 'fa'
-                  ? 'اندازه‌گیری زبری سطح'
-                  : 'Surface roughness measurement',
-              },
-              {
-                name: language === 'fa' ? 'دستگاه سختی‌سنج' : 'Hardness Tester',
-                description: language === 'fa'
-                  ? 'آزمایش سختی و مقاومت'
-                  : 'Hardness and resistance testing',
-              },
-              {
-                name: language === 'fa' ? 'دستگاه کشش' : 'Tensile Tester',
-                description: language === 'fa'
-                  ? 'آزمایش استحکام کشش'
-                  : 'Tensile strength testing',
-              },
-              {
-                name: language === 'fa' ? 'دستگاه طیف‌سنجی' : 'Spectrometer',
-                description: language === 'fa'
-                  ? 'آنالیز شیمیایی دقیق'
-                  : 'Precise chemical analysis',
-              },
-              {
-                name: language === 'fa' ? 'میکروسکوپ الکترونی' : 'Electron Microscope',
-                description: language === 'fa'
-                  ? 'بررسی ساختار ریز'
-                  : 'Microstructure examination',
-              },
-            ].map((equipment, index) => (
-              <div key={index} className="bg-secondary/10 border border-border rounded-lg p-6">
-                <Zap className="w-8 h-8 text-primary mb-3" />
-                <h3 className="font-bold mb-2">{equipment.name}</h3>
-                <p className="text-muted-foreground text-sm">{equipment.description}</p>
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
+              <div className="space-y-6">
+                {[
+                  {
+                    label: language === 'fa' ? 'ضخامت کروم استاندارد' : 'Standard Chrome Thickness',
+                    value: '0.5 - 1.5 mm',
+                  },
+                  {
+                    label: language === 'fa' ? 'روش اندازه‌گیری' : 'Measurement Method',
+                    value: language === 'fa' ? 'دستگاه ضخامت‌سنج الکترونیکی' : 'Electronic thickness gauge',
+                  },
+                  {
+                    label: language === 'fa' ? 'دقت اندازه‌گیری' : 'Measurement Accuracy',
+                    value: '±0.05 mm',
+                  },
+                  {
+                    label: language === 'fa' ? 'فرکانس کنترل' : 'Control Frequency',
+                    value: language === 'fa' ? 'هر 50 قطعه' : 'Every 50 pieces',
+                  },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex justify-between items-center pb-4 border-b border-gray-200 last:border-0">
+                    <span className="font-semibold text-foreground">{item.label}</span>
+                    <span className="text-primary font-bold">{item.value}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Surface Roughness */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            {language === 'fa' ? 'کنترل زبری سطح' : 'Surface Roughness Control'}
+          </h2>
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white border border-gray-200 rounded-lg p-8">
+              <div className="space-y-6">
+                {[
+                  {
+                    label: language === 'fa' ? 'زبری سطح استاندارد' : 'Standard Surface Roughness',
+                    value: 'Ra 0.2 - 0.8 μm',
+                  },
+                  {
+                    label: language === 'fa' ? 'روش اندازه‌گیری' : 'Measurement Method',
+                    value: language === 'fa' ? 'دستگاه سطح‌سنج دیجیتالی' : 'Digital surface roughness gauge',
+                  },
+                  {
+                    label: language === 'fa' ? 'نقاط اندازه‌گیری' : 'Measurement Points',
+                    value: language === 'fa' ? 'حداقل 3 نقطه' : 'Minimum 3 points',
+                  },
+                  {
+                    label: language === 'fa' ? 'استاندارد' : 'Standard',
+                    value: 'ISO 4287',
+                  },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex justify-between items-center pb-4 border-b border-gray-200 last:border-0">
+                    <span className="font-semibold text-foreground">{item.label}</span>
+                    <span className="text-primary font-bold">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Certifications */}
-      <section className="py-16 md:py-24 bg-secondary/5">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            {language === 'fa' ? 'استانداردها و گواهی‌نامه‌ها' : 'Standards & Certifications'}
+            {language === 'fa' ? 'گواهی‌نامه‌ها و استانداردها' : 'Certifications & Standards'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { cert: 'ISO 9001', desc: language === 'fa' ? 'مدیریت کیفیت' : 'Quality Management' },
-              { cert: 'ISO 14001', desc: language === 'fa' ? 'مدیریت محیط‌زیست' : 'Environmental Management' },
-              { cert: 'ASTM', desc: language === 'fa' ? 'استانداردهای آمریکایی' : 'American Standards' },
-              { cert: 'DIN', desc: language === 'fa' ? 'استانداردهای آلمانی' : 'German Standards' },
-              { cert: 'EN', desc: language === 'fa' ? 'استانداردهای اروپایی' : 'European Standards' },
-              { cert: 'JIS', desc: language === 'fa' ? 'استانداردهای ژاپنی' : 'Japanese Standards' },
-            ].map((cert, index) => (
-              <div key={index} className="bg-card border border-border rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
-                <Award className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-bold mb-2">{cert.cert}</h3>
-                <p className="text-muted-foreground text-sm">{cert.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {['ISO 9001', 'ISO 14001', 'ASTM', 'DIN'].map((cert, idx) => (
+              <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">✓</div>
+                <p className="font-bold text-foreground">{cert}</p>
               </div>
             ))}
           </div>

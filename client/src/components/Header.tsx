@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
@@ -19,31 +18,31 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-border shadow-sm">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-orange-600 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-lg">S</span>
+          <a href="/" className="flex items-center gap-3 flex-shrink-0">
+            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">S</span>
             </div>
-            <div className="hidden sm:block">
-              <div className="font-bold text-foreground text-lg leading-tight">
-                {language === 'fa' ? 'سهند' : 'Sahand'}
+            <div>
+              <div className="font-bold text-foreground text-lg">
+                {language === 'fa' ? 'سهند فولاد' : 'Sahand Steel'}
               </div>
-              <div className="text-xs text-muted-foreground leading-tight">
-                {language === 'fa' ? 'فولاد' : 'Steel'}
+              <div className="text-xs text-muted-foreground">
+                {language === 'fa' ? 'تامین‌کننده صنعتی' : 'Industrial Supplier'}
               </div>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <a
                 key={item.key}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 hover:bg-secondary/10 rounded"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-200"
               >
                 {t(item.key)}
               </a>
@@ -51,26 +50,26 @@ export default function Header() {
           </nav>
 
           {/* Right Side: Language Switcher & Mobile Menu */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             {/* Language Switcher */}
-            <div className="flex items-center border border-border rounded-lg p-1 bg-secondary/5">
+            <div className="flex items-center border border-gray-300 rounded overflow-hidden bg-gray-50">
               <button
                 onClick={() => setLanguage('fa')}
-                className={`px-3 py-1 text-sm font-medium rounded transition-all duration-200 ${
+                className={`px-4 py-2 text-sm font-medium transition-colors ${
                   language === 'fa'
                     ? 'bg-primary text-white'
-                    : 'text-foreground hover:text-primary'
+                    : 'text-foreground hover:bg-gray-100'
                 }`}
               >
-                فا
+                فارسی
               </button>
-              <div className="w-px h-4 bg-border mx-1" />
+              <div className="w-px h-6 bg-gray-300"></div>
               <button
                 onClick={() => setLanguage('en')}
-                className={`px-3 py-1 text-sm font-medium rounded transition-all duration-200 ${
+                className={`px-4 py-2 text-sm font-medium transition-colors ${
                   language === 'en'
                     ? 'bg-primary text-white'
-                    : 'text-foreground hover:text-primary'
+                    : 'text-foreground hover:bg-gray-100'
                 }`}
               >
                 EN
@@ -80,7 +79,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 hover:bg-secondary/10 rounded transition-colors"
+              className="lg:hidden p-2 hover:bg-gray-100 rounded transition-colors"
             >
               {mobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -93,12 +92,12 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="lg:hidden mt-4 pb-4 border-t border-border pt-4 space-y-2">
+          <nav className="lg:hidden border-t border-gray-200 py-4 space-y-2">
             {navItems.map((item) => (
               <a
                 key={item.key}
                 href={item.href}
-                className="block px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-secondary/10 rounded transition-colors"
+                className="block px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t(item.key)}

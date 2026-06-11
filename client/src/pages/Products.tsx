@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Products() {
   const { t, language, isRTL } = useLanguage();
@@ -12,6 +12,7 @@ export default function Products() {
       description: language === 'fa'
         ? 'میله‌های فولادی با روکش کروم سخت برای کاربردهای صنعتی'
         : 'Steel bars with hard chrome plating for industrial applications',
+      specs: ['10-100mm', 'Custom Length', '0.5-1.5mm Chrome', 'ISO/ASTM'],
     },
     {
       id: 'chrome-plated-tube',
@@ -19,6 +20,7 @@ export default function Products() {
       description: language === 'fa'
         ? 'لوله‌های فولادی با روکش کروم سخت برای سیستم‌های هیدرولیکی'
         : 'Steel tubes with hard chrome plating for hydraulic systems',
+      specs: ['20-200mm', 'Custom Length', '0.5-1.5mm Chrome', 'ISO/ASTM'],
     },
     {
       id: 'piston-rod',
@@ -26,6 +28,7 @@ export default function Products() {
       description: language === 'fa'
         ? 'میله‌های پیستون با کیفیت بالا برای سیلندرهای هیدرولیکی'
         : 'High-quality piston rods for hydraulic cylinders',
+      specs: ['8-80mm', 'Custom Length', 'Chrome Plated', 'ISO 9001'],
     },
     {
       id: 'linear-shaft',
@@ -33,6 +36,7 @@ export default function Products() {
       description: language === 'fa'
         ? 'شفت‌های خطی با دقت بالا برای کاربردهای صنعتی'
         : 'High-precision linear shafts for industrial applications',
+      specs: ['6-100mm', 'Custom Length', 'Honed', 'ISO 9001'],
     },
     {
       id: 'honed-tube',
@@ -40,71 +44,63 @@ export default function Products() {
       description: language === 'fa'
         ? 'لوله‌های هون‌شده برای سیستم‌های هیدرولیکی و پنوماتیکی'
         : 'Honed tubes for hydraulic and pneumatic systems',
-    },
-    {
-      id: 'nimax-chrome',
-      name: language === 'fa' ? 'میله‌های نیمکس' : 'Nimax Chrome Bars',
-      description: language === 'fa'
-        ? 'میله‌ها و لوله‌های روکش کروم سری نیمکس'
-        : 'Nimax series chrome plated bars and tubes',
+      specs: ['20-200mm', 'Custom Length', 'Honed Surface', 'ISO/ASTM'],
     },
   ];
 
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-secondary text-secondary-foreground py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {t('nav.products')}
-          </h1>
-          <p className="text-lg opacity-90 max-w-3xl">
-            {language === 'fa'
-              ? 'مجموعه‌ای جامع از محصولات فولادی صنعتی با کیفیت بین‌المللی'
-              : 'A comprehensive range of industrial steel products with international quality standards'}
-          </p>
+      <section className="relative w-full h-80 md:h-96 overflow-hidden bg-gray-900">
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/steel-warehouse-7DvmpQvFs83GDykybLJvUk.webp"
+          alt="Products"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              {t('nav.products')}
+            </h1>
+            <p className="text-lg text-white/90">
+              {language === 'fa'
+                ? 'محصولات صنعتی با کیفیت بین‌المللی'
+                : 'Industrial products with international quality'}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product) => (
               <div
                 key={product.id}
-                className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:border-primary/50 group"
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
               >
                 {/* Product Image Placeholder */}
-                <div className="w-full h-48 bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center group-hover:from-primary/10 group-hover:to-primary/5 transition-colors">
-                  <Zap className="w-16 h-16 text-primary/30 group-hover:text-primary/50 transition-colors" />
+                <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center border-b border-gray-200">
+                  <div className="text-6xl">🔧</div>
                 </div>
 
                 {/* Product Info */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-foreground">{product.name}</h3>
-                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
+                  <h3 className="text-lg font-bold mb-2 text-foreground">{product.name}</h3>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                     {product.description}
                   </p>
 
-                  {/* Specs Preview */}
-                  <div className="mb-6 space-y-2 text-sm">
-                    <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">
-                        {language === 'fa' ? 'کیفیت' : 'Quality'}:
-                      </span>
-                      <span className="font-semibold text-primary">
-                        {language === 'fa' ? 'بین‌المللی' : 'International'}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">
-                        {language === 'fa' ? 'موجودی' : 'Availability'}:
-                      </span>
-                      <span className="font-semibold text-green-600">
-                        {language === 'fa' ? 'موجود' : 'In Stock'}
-                      </span>
-                    </div>
+                  {/* Specs */}
+                  <div className="mb-6 space-y-2">
+                    {product.specs.map((spec, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                        <span className="text-muted-foreground">{spec}</span>
+                      </div>
+                    ))}
                   </div>
 
                   {/* CTA Button */}
@@ -123,7 +119,7 @@ export default function Products() {
       </section>
 
       {/* Product Categories */}
-      <section className="py-16 md:py-24 bg-secondary/5">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             {language === 'fa' ? 'دسته‌بندی محصولات' : 'Product Categories'}
@@ -131,44 +127,32 @@ export default function Products() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: language === 'fa' ? 'فولادهای کربنی' : 'Carbon Steel',
-                desc: language === 'fa'
-                  ? 'فولادهای کربنی در مقاطع گرد و چهارگوش'
-                  : 'Carbon steel in round and square sections',
+                title: language === 'fa' ? 'فولادهای کروم' : 'Chrome Steel',
+                desc: language === 'fa' ? 'میله‌ها و لوله‌های روکش کروم' : 'Chrome plated bars and tubes',
               },
               {
-                title: language === 'fa' ? 'فولادهای آلیاژی' : 'Alloy Steel',
-                desc: language === 'fa'
-                  ? 'فولادهای آلیاژی در مقاطع مختلف'
-                  : 'Alloy steel in various sections',
+                title: language === 'fa' ? 'لوله‌های هون‌شده' : 'Honed Tubes',
+                desc: language === 'fa' ? 'لوله‌های هون‌شده دقیق' : 'Precision honed tubes',
               },
               {
-                title: language === 'fa' ? 'لوله‌های سیلندری' : 'Cylinder Tubes',
-                desc: language === 'fa'
-                  ? 'لوله‌های سیلندری برای کاربردهای هیدرولیکی'
-                  : 'Cylinder tubes for hydraulic applications',
+                title: language === 'fa' ? 'میله‌های پیستون' : 'Piston Rods',
+                desc: language === 'fa' ? 'میله‌های پیستون هیدرولیکی' : 'Hydraulic piston rods',
+              },
+              {
+                title: language === 'fa' ? 'شفت‌های خطی' : 'Linear Shafts',
+                desc: language === 'fa' ? 'شفت‌های خطی دقیق' : 'Precision linear shafts',
+              },
+              {
+                title: language === 'fa' ? 'فولادهای الیاژی' : 'Alloy Steel',
+                desc: language === 'fa' ? 'فولادهای الیاژی خاص' : 'Special alloy steels',
               },
               {
                 title: language === 'fa' ? 'فولادهای ابزاری' : 'Tool Steel',
-                desc: language === 'fa'
-                  ? 'فولادهای ابزاری گرمکار و سردکار'
-                  : 'Hot work and cold work tool steel',
-              },
-              {
-                title: language === 'fa' ? 'فولادهای قالب' : 'Mold Steel',
-                desc: language === 'fa'
-                  ? 'فولادهای قالب پلاستیک'
-                  : 'Plastic mold steel',
-              },
-              {
-                title: language === 'fa' ? 'ورق‌های ضدسایش' : 'Wear-Resistant',
-                desc: language === 'fa'
-                  ? 'ورق‌های ضدسایش هارد'
-                  : 'Hard wear-resistant sheets',
+                desc: language === 'fa' ? 'فولادهای ابزاری گرم و سرد' : 'Hot and cold tool steel',
               },
             ].map((category, index) => (
-              <div key={index} className="bg-card border border-border rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
-                <h3 className="text-lg font-bold mb-3 text-primary">{category.title}</h3>
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-bold mb-2 text-primary">{category.title}</h3>
                 <p className="text-muted-foreground text-sm">{category.desc}</p>
               </div>
             ))}
@@ -177,7 +161,7 @@ export default function Products() {
       </section>
 
       {/* Quality Assurance */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
             {language === 'fa' ? 'تضمین کیفیت' : 'Quality Assurance'}
@@ -186,25 +170,19 @@ export default function Products() {
             {[
               {
                 title: language === 'fa' ? 'استانداردهای بین‌المللی' : 'International Standards',
-                desc: language === 'fa'
-                  ? 'تمام محصولات طبق استانداردهای بین‌المللی تولید می‌شوند'
-                  : 'All products manufactured to international standards',
+                desc: language === 'fa' ? 'ISO، ASTM، DIN' : 'ISO, ASTM, DIN',
               },
               {
                 title: language === 'fa' ? 'کنترل کیفیت سخت' : 'Strict Quality Control',
-                desc: language === 'fa'
-                  ? 'هر محصول تحت کنترل کیفیت دقیق قرار می‌گیرد'
-                  : 'Each product undergoes rigorous quality control',
+                desc: language === 'fa' ? 'هر محصول آزمایش شده' : 'Every product tested',
               },
               {
                 title: language === 'fa' ? 'گواهی‌نامه‌ها' : 'Certifications',
-                desc: language === 'fa'
-                  ? 'دارای گواهی‌نامه‌های ISO و سایر استانداردهای معتبر'
-                  : 'ISO certified and other recognized standards',
+                desc: language === 'fa' ? 'تمام گواهی‌نامه‌های معتبر' : 'All valid certificates',
               },
             ].map((item, index) => (
-              <div key={index} className="bg-secondary/10 border border-border rounded-lg p-8">
-                <h3 className="text-lg font-bold mb-3 text-primary">{item.title}</h3>
+              <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                <h3 className="text-lg font-bold mb-2 text-primary">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
@@ -216,14 +194,12 @@ export default function Products() {
       <section className="py-16 md:py-24 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            {language === 'fa'
-              ? 'نیاز به محصول خاصی دارید؟'
-              : 'Need a Specific Product?'}
+            {language === 'fa' ? 'نیاز به محصول خاصی دارید؟' : 'Need a Specific Product?'}
           </h2>
-          <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
             {language === 'fa'
-              ? 'تیم متخصص ما آماده کمک به شما برای انتخاب بهترین محصول است'
-              : 'Our expert team is ready to help you find the right product'}
+              ? 'تیم متخصص ما آماده کمک به شما است'
+              : 'Our expert team is ready to help you'}
           </p>
           <Button
             size="lg"

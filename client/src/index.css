@@ -4,14 +4,14 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant rtl (&:is(.rtl *));
 
-/* Typography: IBM Plex Sans for body, IBM Plex Mono for technical specs */
+/* Professional Industrial B2B Typography */
 @layer base {
   html {
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: "Inter", "Vazirmatn", sans-serif;
   }
   
   code, pre, .mono {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Inter", monospace;
   }
 }
 
@@ -55,76 +55,76 @@
 }
 
 :root {
-  /* Industrial Minimalism Color Palette */
-  --primary: #ff6b35;                    /* Bright Industrial Orange */
-  --primary-foreground: #f8f8f8;         /* Warm White */
-  --sidebar-primary: #ff6b35;
-  --sidebar-primary-foreground: #f8f8f8;
-  --chart-1: #ff6b35;
-  --chart-2: #ff8555;
-  --chart-3: #ffa575;
-  --chart-4: #ffb88f;
-  --chart-5: #ffcba9;
-  --radius: 0.5rem;                      /* Tighter radius for industrial feel */
-  --background: #f8f8f8;                 /* Warm White */
-  --foreground: #1a1a1a;                 /* Deep Charcoal */
+  /* Professional Industrial B2B Color Palette */
+  --primary: #003d82;                    /* Deep Professional Blue */
+  --primary-foreground: #ffffff;         /* White */
+  --sidebar-primary: #003d82;
+  --sidebar-primary-foreground: #ffffff;
+  --chart-1: #003d82;
+  --chart-2: #1a5fa0;
+  --chart-3: #2b7bc4;
+  --chart-4: #4a9fd8;
+  --chart-5: #6db3e8;
+  --radius: 0.375rem;                    /* Subtle radius */
+  --background: #ffffff;                 /* Pure White */
+  --foreground: #1f2937;                 /* Dark Gray */
   --card: #ffffff;                       /* Pure White */
-  --card-foreground: #1a1a1a;            /* Deep Charcoal */
+  --card-foreground: #1f2937;            /* Dark Gray */
   --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
-  --secondary: #3a3a3a;                  /* Steel Gray */
-  --secondary-foreground: #f8f8f8;
-  --muted: #d0d0d0;                      /* Light Gray */
-  --muted-foreground: #666666;           /* Medium Gray */
-  --accent: #ff6b35;                     /* Bright Industrial Orange */
+  --popover-foreground: #1f2937;
+  --secondary: #003d82;                  /* Deep Blue */
+  --secondary-foreground: #ffffff;
+  --muted: #e5e7eb;                      /* Light Gray */
+  --muted-foreground: #6b7280;           /* Medium Gray */
+  --accent: #ff6b35;                     /* Limited Orange Accent */
   --accent-foreground: #ffffff;
   --destructive: #dc2626;                /* Red for errors */
   --destructive-foreground: #ffffff;
-  --border: #e5e5e5;                     /* Light Border */
+  --border: #d1d5db;                     /* Subtle Border */
   --input: #ffffff;
-  --ring: #ff6b35;                       /* Orange focus ring */
-  --sidebar: #f8f8f8;
-  --sidebar-foreground: #1a1a1a;
-  --sidebar-accent: #ff6b35;
+  --ring: #003d82;                       /* Blue focus ring */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1f2937;
+  --sidebar-accent: #003d82;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #e5e5e5;
-  --sidebar-ring: #ff6b35;
+  --sidebar-border: #d1d5db;
+  --sidebar-ring: #003d82;
 }
 
 .dark {
-  /* Dark mode for industrial minimalism */
-  --primary: #ff6b35;
-  --primary-foreground: #1a1a1a;
-  --sidebar-primary: #ff6b35;
-  --sidebar-primary-foreground: #1a1a1a;
-  --background: #0f0f0f;                 /* Very Dark */
-  --foreground: #f8f8f8;                 /* Warm White */
-  --card: #1a1a1a;                       /* Deep Charcoal */
-  --card-foreground: #f8f8f8;
-  --popover: #1a1a1a;
-  --popover-foreground: #f8f8f8;
-  --secondary: #3a3a3a;                  /* Steel Gray */
-  --secondary-foreground: #f8f8f8;
-  --muted: #4a4a4a;                      /* Medium Gray */
-  --muted-foreground: #b0b0b0;           /* Light Gray */
+  /* Dark mode - not used for this professional B2B site */
+  --primary: #003d82;
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #003d82;
+  --sidebar-primary-foreground: #ffffff;
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --card: #ffffff;
+  --card-foreground: #1f2937;
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+  --secondary: #003d82;
+  --secondary-foreground: #ffffff;
+  --muted: #e5e7eb;
+  --muted-foreground: #6b7280;
   --accent: #ff6b35;
-  --accent-foreground: #0f0f0f;
-  --destructive: #ff4444;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #333333;                     /* Dark Border */
-  --input: #1a1a1a;
-  --ring: #ff6b35;
-  --chart-1: #ff6b35;
-  --chart-2: #ff8555;
-  --chart-3: #ffa575;
-  --chart-4: #ffb88f;
-  --chart-5: #ffcba9;
-  --sidebar: #1a1a1a;
-  --sidebar-foreground: #f8f8f8;
-  --sidebar-accent: #ff6b35;
-  --sidebar-accent-foreground: #0f0f0f;
-  --sidebar-border: #333333;
-  --sidebar-ring: #ff6b35;
+  --border: #d1d5db;
+  --input: #ffffff;
+  --ring: #003d82;
+  --chart-1: #003d82;
+  --chart-2: #1a5fa0;
+  --chart-3: #2b7bc4;
+  --chart-4: #4a9fd8;
+  --chart-5: #6db3e8;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1f2937;
+  --sidebar-accent: #003d82;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #d1d5db;
+  --sidebar-ring: #003d82;
 }
 
 @layer base {
@@ -145,39 +145,14 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
-  
-  /* RTL Support */
-  .rtl {
-    direction: rtl;
-    text-align: right;
-  }
-  
-  .rtl [dir="ltr"],
-  .ltr [dir="rtl"] {
-    direction: inherit;
-    text-align: inherit;
-  }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -188,16 +163,45 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
+  }
+
+  /* Professional B2B Styles */
+  .section-hero {
+    @apply relative w-full overflow-hidden;
+  }
+
+  .hero-image {
+    @apply w-full h-auto object-cover;
+  }
+
+  .product-card {
+    @apply bg-white border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-3xl;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded font-medium transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-primary text-primary hover:bg-primary/5 px-6 py-3 rounded font-medium transition-colors;
   }
 }
