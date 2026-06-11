@@ -29,7 +29,7 @@ export default function Footer() {
               <li><a href="/" className="text-white/80 hover:text-white transition-colors">{t('nav.home')}</a></li>
               <li><a href="/about" className="text-white/80 hover:text-white transition-colors">{t('nav.about')}</a></li>
               <li><a href="/products" className="text-white/80 hover:text-white transition-colors">{t('nav.products')}</a></li>
-              <li><a href="/applications" className="text-white/80 hover:text-white transition-colors">{t('nav.applications')}</a></li>
+
               <li><a href="/quality" className="text-white/80 hover:text-white transition-colors">{t('nav.quality')}</a></li>
             </ul>
           </div>

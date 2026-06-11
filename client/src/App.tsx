@@ -13,7 +13,7 @@ import MobileBottomNav from "./components/MobileBottomNav";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
-import Applications from "./pages/Applications";
+
 import Quality from "./pages/Quality";
 import Certificates from "./pages/Certificates";
 import Blog from "./pages/Blog";
@@ -32,7 +32,7 @@ function Router() {
       <Route path="/products/:categoryId/:productId" component={ProductDetailPage} />
       <Route path="/products/:categoryId" component={CategoryDetail} />
       <Route path="/products/:id" component={ProductDetail} />
-      <Route path="/applications" component={Applications} />
+
       <Route path="/quality" component={Quality} />
       <Route path="/certificates" component={Certificates} />
       <Route path="/blog" component={Blog} />
