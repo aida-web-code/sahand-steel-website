@@ -49,11 +49,12 @@ const translations: Record<Language, Record<string, string>> = {
     'product.requestQuote': 'درخواست قیمت',
     
     // Buttons
-    'btn.viewAll': 'مشاهده تمام محصولات',
-    'btn.learnMore': 'بیشتر بدانید',
+    'btn.viewAll': 'مشاهده محصولات',
+    'btn.learnMore': 'مشاهده محصولات',
     'btn.contact': 'تماس با ما',
     'btn.download': 'دانلود',
     'btn.send': 'ارسال',
+    'btn.requestQuote': 'دریافت استعلام قیمت',
     
     // Footer
     'footer.rights': 'تمامی حقوق برای شرکت فولاد سهند محفوظ است',
@@ -95,11 +96,12 @@ const translations: Record<Language, Record<string, string>> = {
     'product.requestQuote': 'Request Quote',
     
     // Buttons
-    'btn.viewAll': 'View All Products',
-    'btn.learnMore': 'Learn More',
+    'btn.viewAll': 'View Products',
+    'btn.learnMore': 'View Products',
     'btn.contact': 'Contact Us',
     'btn.download': 'Download',
     'btn.send': 'Send',
+    'btn.requestQuote': 'Request Quote',
     
     // Footer
     'footer.rights': 'All rights reserved for Sahand Steel Company',

@@ -55,16 +55,18 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/45"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-4 py-12">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              {language === 'fa'
-                ? 'تامین‌کننده فولاد صنعتی ایران'
-                : 'Iran Industrial Steel Supplier'}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 leading-tight">
+              {language === 'fa' ? (
+                <div className="space-y-2">
+                  <div>تهیه و توزیع انواع</div>
+                  <div>فولادهای آلیاژی</div>
+                  <div>لولههای سیلندری</div>
+                  <div>شافتهای هارد کروم</div>
+                </div>
+              ) : (
+                'Supply & Distribution of\nAlloy Steels\nCylinder Tubes\nHard Chrome Shafts'
+              )}
             </h1>
-            <p className="text-xl md:text-2xl mb-10 text-white/95 leading-relaxed max-w-3xl mx-auto">
-              {language === 'fa'
-                ? 'میله‌های روکش کروم، لوله‌های سیلندری، میله‌های پیستون و شفت‌های خطی با کیفیت بالا برای صنایع ایران'
-                : 'Premium chrome plated bars, cylinder tubes, piston rods, and linear shafts for Iranian industries'}
-            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
