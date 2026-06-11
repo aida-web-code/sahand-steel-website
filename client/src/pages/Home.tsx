@@ -117,9 +117,9 @@ export default function Home() {
               {language === 'fa' ? (
                 <div className="space-y-2">
                   <div>تهیه و توزیع انواع</div>
-                  <div>فولادهای آلیاژی</div>
-                  <div>لولههای سیلندری</div>
-                  <div>شافتهای هارد کروم</div>
+                  <div>فولادهای الیاژی</div>
+                  <div>لوله های سیلندری</div>
+                  <div>شافت های هارد کروم</div>
                 </div>
               ) : (
                 'Supply & Distribution of\nAlloy Steels\nCylinder Tubes\nHard Chrome Shafts'
@@ -287,10 +287,10 @@ export default function Home() {
                 icon: CheckCircle2,
               },
               {
-                title: language === 'fa' ? 'پشتیبانی 24/7' : '24/7 Support',
+                title: language === 'fa' ? 'مشاوره تخصصی' : 'Expert Consultation',
                 desc: language === 'fa'
-                  ? 'تیم متخصص آماده پاسخ‌گویی به تمام سوالات'
-                  : 'Expert team ready to answer all questions',
+                  ? 'تیم متخصص آماده ارائه مشاوره تخصصی'
+                  : 'Expert team ready to provide specialized consultation',
                 icon: Award,
               },
               {
@@ -301,10 +301,10 @@ export default function Home() {
                 icon: Zap,
               },
               {
-                title: language === 'fa' ? 'تولید داخلی' : 'Domestic Production',
+                title: language === 'fa' ? 'تولید و واردات سفارشی' : 'Custom Production & Import',
                 desc: language === 'fa'
-                  ? 'تولید محلی برای بازار ایران'
-                  : 'Domestic production for Iranian market',
+                  ? 'تولید و واردات سفارشی برای نیازهای صنعتی'
+                  : 'Custom production and import for industrial needs',
                 icon: CheckCircle2,
               },
             ].map((feature, index) => {
@@ -336,10 +336,10 @@ export default function Home() {
               </p>
               <ul className="space-y-4">
                 {[
-                  language === 'fa' ? 'کیفیت تضمینشده در هر مرحله' : 'Quality assured at every stage',
-                  language === 'fa' ? 'استفاده از مواد اولیه با کیفیت بالا' : 'Use of high-quality raw materials',
-                  language === 'fa' ? 'استانداردهای سختگیرانه تولید' : 'Strict production standards',
-                  language === 'fa' ? 'تعهد به تحویل دقیق و بهموقع' : 'Commitment to precise, on-time delivery',
+                  language === 'fa' ? 'عرضه جامع فولادهای کربنی و آلیاژی' : 'Comprehensive supply of carbon and alloy steels',
+                  language === 'fa' ? 'تامین تخصصی فولادهای ابزاری و قالب' : 'Specialized supply of tool and mold steels',
+                  language === 'fa' ? 'مرجع قطعات هیدرولیک و پنوماتیک' : 'Reference for hydraulic and pneumatic components',
+                  language === 'fa' ? 'توزیع ورقهای صنعتی ضدسایش' : 'Distribution of industrial wear-resistant plates',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />

@@ -30,7 +30,7 @@ export default function Header() {
             </a>
           </div>
           <div className="text-xs opacity-90">
-            {language === 'fa' ? 'تامين‌كننده موثق فولاد صنعتی' : 'Your Trusted Supplier of Industrial Steel'}
+            {language === 'fa' ? 'بازرگانی فولادهای آلیاژی سهند' : 'Sahand Alloy Steel Trading'}
           </div>
         </div>
       </div>
