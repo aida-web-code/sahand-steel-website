@@ -91,37 +91,29 @@ export default function Quality() {
         </div>
       </section>
 
-      {/* Testing Methods */}
+      {/* Quality Principles */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            {language === 'fa' ? 'روش‌های آزمایشی' : 'Testing Methods'}
+            {language === 'fa' ? 'اصول کیفیت' : 'Quality Principles'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {[
               {
-                title: language === 'fa' ? 'آنالیز شیمیایی' : 'Chemical Analysis',
-                desc: language === 'fa' ? 'تجزیه و تحلیل ترکیب شیمیایی' : 'Composition analysis',
+                title: language === 'fa' ? 'کیفیت تضمین شده در هر مرحله' : 'Quality assured at every stage',
+                desc: language === 'fa' ? 'کنترل کیفیت در تمام مراحل تولید' : 'Quality control throughout production',
               },
               {
-                title: language === 'fa' ? 'آزمایش کشش' : 'Tensile Test',
-                desc: language === 'fa' ? 'بررسی مقاومت و کشش' : 'Strength and elongation',
+                title: language === 'fa' ? 'استفاده از مواد اولیه با کیفیت بالا' : 'Use of high-quality raw materials',
+                desc: language === 'fa' ? 'انتخاب دقیق مواد اولیه برتر' : 'Careful selection of premium materials',
               },
               {
-                title: language === 'fa' ? 'آزمایش سختی' : 'Hardness Test',
-                desc: language === 'fa' ? 'اندازه‌گیری سختی سطح' : 'Surface hardness measurement',
+                title: language === 'fa' ? 'استانداردهای تولید سخت‌گیرانه' : 'Strict production standards',
+                desc: language === 'fa' ? 'رعایت استانداردهای صنعتی بین‌المللی' : 'Adherence to international standards',
               },
               {
-                title: language === 'fa' ? 'کنترل ابعادی' : 'Dimensional Control',
-                desc: language === 'fa' ? 'بررسی دقیق ابعاد' : 'Precise dimension checking',
-              },
-              {
-                title: language === 'fa' ? 'بررسی سطح' : 'Surface Inspection',
-                desc: language === 'fa' ? 'کنترل کیفیت سطح' : 'Surface quality control',
-              },
-              {
-                title: language === 'fa' ? 'آزمایش خوردگی' : 'Corrosion Test',
-                desc: language === 'fa' ? 'آزمایش مقاومت به خوردگی' : 'Corrosion resistance test',
+                title: language === 'fa' ? 'تعهد به تحویل دقیق و به موقع' : 'Commitment to precise, on-time delivery',
+                desc: language === 'fa' ? 'تحویل محصولات با دقت و به موقع' : 'Timely and accurate product delivery',
               },
             ].map((method, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-lg p-6">

@@ -336,10 +336,10 @@ export default function Home() {
               </p>
               <ul className="space-y-4">
                 {[
-                  language === 'fa' ? 'آنالیز شیمیایی دقیق' : 'Precise chemical analysis',
-                  language === 'fa' ? 'آزمایش مکانیکی جامع' : 'Comprehensive mechanical testing',
-                  language === 'fa' ? 'کنترل ابعادی دقیق' : 'Precise dimensional control',
-                  language === 'fa' ? 'بررسی سطح و روکش' : 'Surface and coating inspection',
+                  language === 'fa' ? 'کیفیت تضمینشده در هر مرحله' : 'Quality assured at every stage',
+                  language === 'fa' ? 'استفاده از مواد اولیه با کیفیت بالا' : 'Use of high-quality raw materials',
+                  language === 'fa' ? 'استانداردهای سختگیرانه تولید' : 'Strict production standards',
+                  language === 'fa' ? 'تعهد به تحویل دقیق و بهموقع' : 'Commitment to precise, on-time delivery',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
