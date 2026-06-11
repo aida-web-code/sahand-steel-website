@@ -55,21 +55,21 @@ export default function Home() {
       name: language === 'fa' ? 'میله‌های روکش کروم' : 'Chrome Plated Bar',
       desc: language === 'fa' ? 'میله‌های فولادی با روکش کروم دقیق' : 'Precision chrome plated steel bars',
       specs: ['Diameter: 10-100mm', 'Chrome: 0.5-1.5mm', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hero-chrome-bars-46HBD8CLvQy8N5Z5Hogj8q.webp',
+      image: '/manus-storage/4Uilc147zj14_78e63802.webp',
     },
     {
       id: 'chrome-tube',
       name: language === 'fa' ? 'لوله‌های سیلندری' : 'Chrome Plated Tube',
       desc: language === 'fa' ? 'لوله‌های سیلندری با روکش کروم' : 'Chrome plated cylinder tubes',
       specs: ['ID: 10-200mm', 'Wall: 1-5mm', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hydraulic-system-EHVhKJhvQvfFMHyYxLkXQu.webp',
+      image: '/manus-storage/1DVcGxRK9HfQ_fb67efd3.jpg',
     },
     {
       id: 'piston-rod',
       name: language === 'fa' ? 'میله‌های پیستون' : 'Piston Rod',
       desc: language === 'fa' ? 'میله‌های پیستون هیدرولیکی' : 'Hydraulic piston rods',
       specs: ['Diameter: 16-100mm', 'Chrome: 0.8-1.5mm', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/steel-warehouse-8Tz4Dq6vvHfmNQKjXrH2Qm.webp',
+      image: '/manus-storage/euWR3tEji9Cn_f16d82da.jpg',
     },
     {
       id: 'linear-shaft',
@@ -83,7 +83,7 @@ export default function Home() {
       name: language === 'fa' ? 'لوله‌های هون‌شده' : 'Honed Tube',
       desc: language === 'fa' ? 'لوله‌های هون‌شده دقیق' : 'Precision honed tubes',
       specs: ['ID: 10-200mm', 'Ra: 0.2-0.8μm', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/quality-inspection-LXDSSjAGNKKE7EsDnBQeXx.webp',
+      image: '/manus-storage/OjGINUYf0vXc_aebf6727.jpg',
     },
   ];
 
