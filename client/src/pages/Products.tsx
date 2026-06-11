@@ -1,12 +1,10 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { productCategories } from '@/lib/products';
-import { useState } from 'react';
 
 export default function Products() {
   const { t, language, isRTL } = useLanguage();
-  const [expandedCategory, setExpandedCategory] = useState<string | null>('chrome-plated-bars');
 
   return (
     <div className="w-full">
@@ -32,87 +30,56 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Products by Category */}
+      {/* Products Grid */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             {language === 'fa' ? 'دسته‌بندی محصولات' : 'Product Categories'}
           </h2>
 
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {productCategories.map((category) => (
-              <div key={category.id} className="border border-gray-200 rounded-lg overflow-hidden">
-                {/* Category Header */}
-                <button
-                  onClick={() => setExpandedCategory(expandedCategory === category.id ? null : category.id)}
-                  className="w-full bg-gradient-to-r from-primary to-primary/90 text-white p-6 flex items-center justify-between hover:from-primary/90 hover:to-primary transition-colors"
-                >
-                  <div className="text-left">
-                    <h3 className="text-2xl font-bold">
-                      {language === 'fa' ? category.name : category.nameEn}
-                    </h3>
-                    <p className="text-white/90 mt-1">
-                      {language === 'fa' ? category.description : category.descriptionEn}
-                    </p>
-                  </div>
-                  <ChevronDown
-                    className={`w-6 h-6 flex-shrink-0 transition-transform ${
-                      expandedCategory === category.id ? 'rotate-180' : ''
-                    } ${isRTL ? 'mr-4' : 'ml-4'}`}
+              <div
+                key={category.id}
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                {/* Product Image */}
+                <div className="w-full h-48 bg-gray-100 overflow-hidden flex items-center justify-center border-b border-gray-200">
+                  <img
+                    src={category.products[0]?.image}
+                    alt={language === 'fa' ? category.name : category.nameEn}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                </button>
+                </div>
 
-                {/* Subcategories */}
-                {expandedCategory === category.id && (
-                  <div className="bg-gray-50 p-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {category.subcategories.map((subcategory) => (
-                        <div
-                          key={subcategory.id}
-                          className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-                        >
-                          {/* Product Image */}
-                          <div className="w-full h-48 bg-gray-100 overflow-hidden flex items-center justify-center border-b border-gray-200">
-                            <img
-                              src={subcategory.image}
-                              alt={language === 'fa' ? subcategory.name : subcategory.nameEn}
-                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                            />
-                          </div>
+                {/* Category Info */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-foreground">
+                    {language === 'fa' ? category.name : category.nameEn}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                    {language === 'fa' ? category.description : category.descriptionEn}
+                  </p>
 
-                          {/* Product Info */}
-                          <div className="p-6">
-                            <h4 className="text-lg font-bold mb-2 text-foreground">
-                              {language === 'fa' ? subcategory.name : subcategory.nameEn}
-                            </h4>
-                            <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                              {language === 'fa' ? subcategory.description : subcategory.descriptionEn}
-                            </p>
-
-                            {/* Specs */}
-                            <div className="mb-6 space-y-2">
-                              {subcategory.specs.map((spec, idx) => (
-                                <div key={idx} className="flex items-center gap-2 text-sm">
-                                  <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                                  <span className="text-muted-foreground">{spec}</span>
-                                </div>
-                              ))}
-                            </div>
-
-                            {/* CTA Button */}
-                            <Button
-                              className="w-full bg-primary hover:bg-primary/90 text-white"
-                              onClick={() => window.location.href = `/products/${category.id}/${subcategory.id}`}
-                            >
-                              {t('btn.learnMore')}
-                              <ArrowRight className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`} />
-                            </Button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                  {/* Specs */}
+                  <div className="mb-6 space-y-2">
+                    {category.products[0]?.specs.slice(0, 3).map((spec: string, idx: number) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                        <span className="text-muted-foreground">{spec}</span>
+                      </div>
+                    ))}
                   </div>
-                )}
+
+                  {/* CTA Button */}
+                  <Button
+                    className="w-full bg-primary hover:bg-primary/90 text-white"
+                    onClick={() => window.location.href = `/products/${category.id}`}
+                  >
+                    {t('btn.learnMore')}
+                    <ArrowRight className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`} />
+                  </Button>
+                </div>
               </div>
             ))}
           </div>

@@ -2,21 +2,21 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { getCategoryById, getSubcategoryById } from '@/lib/products';
+import { getCategoryById, getProductById } from '@/lib/products';
 
 export default function ProductDetailPage() {
   const { language, isRTL } = useLanguage();
   const [location] = useLocation();
   
-  // Extract category and subcategory IDs from URL
+  // Extract category and product IDs from URL
   const pathParts = location.split('/').filter(Boolean);
   const categoryId = pathParts[1];
-  const subcategoryId = pathParts[2];
+  const productId = pathParts[2];
 
   const category = getCategoryById(categoryId);
-  const subcategory = category ? getSubcategoryById(categoryId, subcategoryId) : null;
+  const product = category ? getProductById(categoryId, productId) : null;
 
-  if (!category || !subcategory) {
+  if (!category || !product) {
     return (
       <div className="w-full min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -48,12 +48,12 @@ export default function ProductDetailPage() {
               {language === 'fa' ? 'محصولات' : 'Products'}
             </a>
             <span className="text-muted-foreground">/</span>
-            <a href={`/products#${categoryId}`} className="text-primary hover:underline">
+            <a href={`/products/${categoryId}`} className="text-primary hover:underline">
               {language === 'fa' ? category.name : category.nameEn}
             </a>
             <span className="text-muted-foreground">/</span>
             <span className="text-foreground font-medium">
-              {language === 'fa' ? subcategory.name : subcategory.nameEn}
+              {language === 'fa' ? product.name : product.nameEn}
             </span>
           </div>
         </div>
@@ -67,8 +67,8 @@ export default function ProductDetailPage() {
             <div className="flex items-center justify-center">
               <div className="w-full h-96 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
                 <img
-                  src={subcategory.image}
-                  alt={language === 'fa' ? subcategory.name : subcategory.nameEn}
+                  src={product.image}
+                  alt={language === 'fa' ? product.name : product.nameEn}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -77,10 +77,10 @@ export default function ProductDetailPage() {
             {/* Product Info */}
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-                {language === 'fa' ? subcategory.name : subcategory.nameEn}
+                {language === 'fa' ? product.name : product.nameEn}
               </h1>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                {language === 'fa' ? subcategory.description : subcategory.descriptionEn}
+                {language === 'fa' ? product.description : product.descriptionEn}
               </p>
 
               {/* Specifications */}
@@ -89,7 +89,7 @@ export default function ProductDetailPage() {
                   {language === 'fa' ? 'مشخصات فنی' : 'Technical Specifications'}
                 </h3>
                 <ul className="space-y-3">
-                  {subcategory.specs.map((spec, idx) => (
+                  {product.specs.map((spec: string, idx: number) => (
                     <li key={idx} className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                       <span className="text-foreground">{spec}</span>
@@ -173,7 +173,7 @@ export default function ProductDetailPage() {
             {language === 'fa' ? 'محصولات مرتبط' : 'Related Products'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {category.subcategories.slice(0, 3).map((related) => (
+            {category.products.slice(0, 3).map((related) => (
               <div
                 key={related.id}
                 className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"

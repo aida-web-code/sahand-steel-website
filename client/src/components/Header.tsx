@@ -10,12 +10,8 @@ export default function Header() {
 
   const navItems = [
     { key: 'nav.home', href: '/' },
-    { key: 'nav.about', href: '/about' },
     { key: 'nav.products', href: '/products' },
-    { key: 'nav.applications', href: '/applications' },
-    { key: 'nav.quality', href: '/quality' },
-    { key: 'nav.certificates', href: '/certificates' },
-    { key: 'nav.blog', href: '/blog' },
+    { key: 'nav.about', href: '/about' },
     { key: 'nav.contact', href: '/contact' },
   ];
 
@@ -69,11 +65,11 @@ export default function Header() {
                         {t(item.key)}
                         <ChevronDown className="w-4 h-4" />
                       </button>
-                      <div className="absolute left-0 mt-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <div className="absolute left-0 mt-0 w-64 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                         {productCategories.map((cat) => (
                           <a
                             key={cat.id}
-                            href={`/products#${cat.id}`}
+                            href={`/products/${cat.id}`}
                             className="block px-4 py-3 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors"
                           >
                             {language === 'fa' ? cat.name : cat.nameEn}
@@ -163,7 +159,7 @@ export default function Header() {
                           {productCategories.map((cat) => (
                             <a
                               key={cat.id}
-                              href={`/products#${cat.id}`}
+                              href={`/products/${cat.id}`}
                               className="block px-6 py-2 text-sm text-foreground hover:text-primary hover:bg-gray-100 rounded transition-colors"
                               onClick={() => {
                                 setMobileMenuOpen(false);

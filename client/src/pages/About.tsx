@@ -161,6 +161,51 @@ export default function About() {
         </div>
       </section>
 
+      {/* Steel Types */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            {language === 'fa' ? 'انواع فولادهای تامین‌شده' : 'Steel Types Supplied'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { name: language === 'fa' ? 'فولاد های کربنی' : 'Carbon Steels', id: 'carbon' },
+              { name: language === 'fa' ? 'فولاد های آلیاژی' : 'Alloy Steels', id: 'alloy' },
+              { name: language === 'fa' ? 'فولادهای ابزاری گرمکار' : 'Hot Work Tool Steels', id: 'hot-work' },
+              { name: language === 'fa' ? 'فولاد های ابزاری سردکار' : 'Cold Work Tool Steels', id: 'cold-work' },
+              { name: language === 'fa' ? 'فولاد های قالب پلاستیک' : 'Plastic Mold Steels', id: 'mold' },
+            ].map((steel, index) => (
+              <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center hover:bg-primary/5 transition-colors">
+                <p className="font-semibold text-foreground text-sm">{steel.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Departments */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            {language === 'fa' ? 'دپارتمان‌های شرکت' : 'Company Departments'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {[
+              { name: language === 'fa' ? 'دپارتمان مشاوره' : 'Consulting Department', desc: language === 'fa' ? 'مشاوره تخصصی' : 'Expert Consulting' },
+              { name: language === 'fa' ? 'دپارتمان مهندسی' : 'Engineering Department', desc: language === 'fa' ? 'حل‌های مهندسی' : 'Engineering Solutions' },
+              { name: language === 'fa' ? 'دپارتمان مالی و حقوقی' : 'Finance & Legal', desc: language === 'fa' ? 'خدمات مالی' : 'Financial Services' },
+              { name: language === 'fa' ? 'دپارتمان طراحی' : 'Design Department', desc: language === 'fa' ? 'طراحی و توسعه' : 'Design & Development' },
+              { name: language === 'fa' ? 'دپارتمان امور مشتریان' : 'Customer Affairs', desc: language === 'fa' ? 'خدمات مشتری' : 'Customer Service' },
+            ].map((dept, index) => (
+              <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 text-center">
+                <h3 className="font-bold text-foreground mb-2">{dept.name}</h3>
+                <p className="text-sm text-muted-foreground">{dept.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Team */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">

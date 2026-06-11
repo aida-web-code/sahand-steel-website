@@ -20,6 +20,7 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import ProductDetail from "./pages/ProductDetail";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import CategoryDetail from "./pages/CategoryDetail";
 
 
 function Router() {
@@ -28,7 +29,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/products" component={Products} />
-      <Route path="/products/:categoryId/:subcategoryId" component={ProductDetailPage} />
+      <Route path="/products/:categoryId/:productId" component={ProductDetailPage} />
+      <Route path="/products/:categoryId" component={CategoryDetail} />
       <Route path="/products/:id" component={ProductDetail} />
       <Route path="/applications" component={Applications} />
       <Route path="/quality" component={Quality} />
