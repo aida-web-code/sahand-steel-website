@@ -74,16 +74,7 @@ export default function Applications() {
                 desc: language === 'fa' ? 'ماشین‌آلات تولید پلاستیک' : 'Plastic production machinery',
                 icon: '🏭',
               },
-              {
-                title: language === 'fa' ? 'صنایع غذایی' : 'Food Industry',
-                desc: language === 'fa' ? 'تجهیزات پردازش غذایی' : 'Food processing equipment',
-                icon: '🥫',
-              },
-              {
-                title: language === 'fa' ? 'صنایع دارویی' : 'Pharmaceutical Industry',
-                desc: language === 'fa' ? 'تجهیزات تولید دارویی' : 'Pharmaceutical production equipment',
-                icon: '💊',
-              },
+
             ].map((app, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow text-center">
                 <div className="text-4xl mb-4">{app.icon}</div>
