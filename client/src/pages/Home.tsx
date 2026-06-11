@@ -80,8 +80,8 @@ export default function Home() {
     },
     {
       id: 'honed-tube',
-      name: language === 'fa' ? 'لوله‌های هون‌شده' : 'Honed Tube',
-      desc: language === 'fa' ? 'لوله‌های هون‌شده دقیق' : 'Precision honed tubes',
+      name: language === 'fa' ? 'لوله سیلندری داخل سنگخورده' : 'Cylinder Tube (Honed)',
+      desc: language === 'fa' ? 'لوله‌های سیلندری داخل سنگخورده دقیق' : 'Precision cylinder tubes (honed)',
       specs: ['ID: 10-200mm', 'Ra: 0.2-0.8μm', 'ISO 9001'],
       image: '/manus-storage/OjGINUYf0vXc_aebf6727.jpg',
     },

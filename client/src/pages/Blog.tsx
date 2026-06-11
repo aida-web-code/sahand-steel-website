@@ -48,10 +48,10 @@ export default function Blog() {
     },
     {
       id: 5,
-      title: language === 'fa' ? 'لوله‌های کروم‌شده در مقابل لوله‌های هون‌شده' : 'Chrome Plated Tube vs Honed Tube',
+      title: language === 'fa' ? 'لوله‌های کروم‌شده در مقابل لوله سیلندری داخل سنگخورده' : 'Chrome Plated Tube vs Cylinder Tube (Honed)',
       excerpt: language === 'fa'
         ? 'لوله‌های کروم‌شده و لوله‌های هون‌شده هر دو برای سیستم‌های هیدرولیکی استفاده می‌شوند. اما کدام یک برای نیاز شما مناسب‌تر است؟'
-        : 'Both chrome plated and honed tubes are used for hydraulic systems. But which one is better for your needs?',
+        : 'Both chrome plated and cylinder tubes (honed) are used for hydraulic systems. But which one is better for your needs?',
       author: language === 'fa' ? 'تیم سهند' : 'Sahand Team',
       date: '2026-05-01',
       category: language === 'fa' ? 'مقایسه محصولات' : 'Product Comparison',
