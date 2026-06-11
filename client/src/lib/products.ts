@@ -113,7 +113,7 @@ export const productCategories: ProductCategory[] = [
         description: 'لوله‌های با روکش کروم سخت',
         descriptionEn: 'Tubes with hard chrome plating',
         specs: ['Diameter: 20-200mm', 'Chrome Coating: 0.5-1.5mm', 'ISO/ASTM Standard', 'Custom Length'],
-        image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hero-chrome-bars-46HBD8CLvQy8N5Z5Hogj8q.webp',
+        image: '/manus-storage/chrome_cylinder_tubes_da831614.png',
       },
     ],
   },
