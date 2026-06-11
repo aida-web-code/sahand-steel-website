@@ -1,9 +1,53 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Award, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Award, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const { t, language, isRTL } = useLanguage();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroSlides = [
+    {
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hero-chrome-bars-46HBD8CLvQy8N5Z5Hogj8q.webp',
+      alt: 'Chrome Plated Bars',
+    },
+    {
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hydraulic-system-EHVhKJhvQvfFMHyYxLkXQu.webp',
+      alt: 'Hydraulic Systems',
+    },
+    {
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/steel-warehouse-8Tz4Dq6vvHfmNQKjXrH2Qm.webp',
+      alt: 'Steel Warehouse',
+    },
+    {
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/manufacturing-facility-7mJQnHvKvqKjHqmQqKzfBc.webp',
+      alt: 'Manufacturing Facility',
+    },
+    {
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/quality-inspection-LXDSSjAGNKKE7EsDnBQeXx.webp',
+      alt: 'Quality Inspection',
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [heroSlides.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
   const products = [
     {
@@ -45,14 +89,28 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      {/* Hero Section - Full Width Image */}
+      {/* Hero Section - Carousel Slider */}
       <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-gray-900">
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hero-chrome-bars-46HBD8CLvQy8N5Z5Hogj8q.webp"
-          alt="Chrome Plated Bars"
-          className="w-full h-full object-cover"
-        />
+        {/* Carousel Images */}
+        <div className="relative w-full h-full">
+          {heroSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+            >
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/45"></div>
+
+        {/* Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-4 py-12">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 leading-tight">
@@ -86,6 +144,33 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className={`absolute top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full transition-all ${isRTL ? 'right-4 md:right-8' : 'left-4 md:left-8'}`}
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className={`absolute top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full transition-all ${isRTL ? 'left-4 md:left-8' : 'right-4 md:right-8'}`}
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 flex gap-2">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentSlide ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/75'
+              }`}
+            />
+          ))}
+        </div>
       </section>
 
       {/* Industrial Business Metrics */}
@@ -116,8 +201,8 @@ export default function Home() {
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {language === 'fa'
-                ? 'محصولات با کیفیت بالا برای صنایع ایران'
-                : 'High-quality products for Iranian industries'}
+                ? 'محصولات با كيفيت بالا برای كاربردهای صنعتی'
+                : 'High-quality products for industrial applications'}
             </p>
           </div>
 

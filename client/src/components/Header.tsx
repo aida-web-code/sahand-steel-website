@@ -30,7 +30,7 @@ export default function Header() {
             </a>
           </div>
           <div className="text-xs opacity-90">
-            {language === 'fa' ? 'تامین‌کننده فولاد صنعتی ایران' : 'Iran Industrial Steel Supplier'}
+            {language === 'fa' ? 'تامين‌كننده موثق فولاد صنعتی' : 'Your Trusted Supplier of Industrial Steel'}
           </div>
         </div>
       </div>
@@ -41,17 +41,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-24">
             {/* Logo */}
             <a href="/" className="flex items-center gap-3 flex-shrink-0">
-              <div className="w-14 h-14 bg-primary rounded-lg flex items-center justify-center shadow-md">
-                <span className="text-white font-bold text-2xl">S</span>
-              </div>
-              <div>
-                <div className="font-bold text-foreground text-lg leading-tight">
-                  {language === 'fa' ? 'سهند فولاد' : 'Sahand Steel'}
-                </div>
-                <div className="text-xs text-primary font-semibold">
-                  {language === 'fa' ? 'صادرات صنعتی' : 'Industrial Export'}
-                </div>
-              </div>
+              <img src="/manus-storage/logo_sahand_steel_e29cb127.png" alt="Sahand Steel" className="h-16 w-auto" />
             </a>
 
             {/* Desktop Navigation */}

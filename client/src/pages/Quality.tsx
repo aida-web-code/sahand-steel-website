@@ -28,12 +28,12 @@ export default function Quality() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {language === 'fa' ? 'کنترل کیفیت جامع' : 'Comprehensive Quality Control'}
+              {language === 'fa' ? 'اطمينان کيفيت و دقالی' : 'Quality Assurance & Precision'}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {language === 'fa'
-                ? 'تمام محصولات سهند فولاد تحت کنترل کیفیت دقیق و جامع قرار می‌گیرند تا بالاترین استانداردهای صنعتی برآورده شوند.'
-                : 'All Sahand Steel products undergo rigorous and comprehensive quality control to meet the highest industrial standards.'}
+                ? 'تمام محصولات با استانداردهای دقالی ساختمانی بررسی می‌شوند. از کيفيت سطح تا دقالی ابعادی، تمام موارد تحت نظارت سریع.'
+                : 'All products are manufactured to precision engineering standards. From surface quality to dimensional accuracy, every aspect is under strict supervision.'}
             </p>
           </div>
 
@@ -49,6 +49,7 @@ export default function Quality() {
                   { step: '2', title: language === 'fa' ? 'تولید' : 'Production', desc: language === 'fa' ? 'کنترل در حین تولید' : 'In-process monitoring' },
                   { step: '3', title: language === 'fa' ? 'آزمایش نهایی' : 'Final Testing', desc: language === 'fa' ? 'آزمایش‌های جامع نهایی' : 'Comprehensive final testing' },
                   { step: '4', title: language === 'fa' ? 'بسته‌بندی و ارسال' : 'Packaging & Shipping', desc: language === 'fa' ? 'بسته‌بندی محفوظ و ارسال' : 'Safe packaging and delivery' },
+                  { step: '5', title: language === 'fa' ? 'استانداردهای دقالی ساختمانی' : 'Precision Manufacturing Standards', desc: language === 'fa' ? 'رعايت استانداردهای بين‌المللی' : 'Adherence to international standards' }
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-4">
                     <div className="flex-shrink-0">
