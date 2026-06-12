@@ -547,6 +547,52 @@ export const productCategories: ProductCategory[] = [
       },
     ],
   },
+  {
+    id: 'linear-steel-shafts',
+    name: 'شافتهای فولادی لاینر',
+    nameEn: 'Linear Steel Shafts',
+    description: 'شافتهای فولادی لاینر با دقت بالا برای کاربردهای صنعتی',
+    descriptionEn: 'High-precision linear steel shafts for industrial applications',
+    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/linear-steel-shafts-B8q2qMJLZeRAb3SyyiGfot.webp',
+    subcategories: [
+      {
+        id: 'lss-standard',
+        name: 'شافتهای استاندارد',
+        nameEn: 'Standard Linear Shafts',
+        products: [
+          {
+            id: 'lss-standard-1',
+            name: 'شافت لاینر استاندارد',
+            nameEn: 'Standard Linear Shaft',
+            description: 'شافتهای فولادی لاینر با دقت استاندارد',
+            descriptionEn: 'Standard precision linear steel shafts',
+            specs: ['Diameter: 8-80mm', 'Ground Finish', 'h7 Tolerance', 'ISO 9001'],
+            image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/linear-steel-shafts-B8q2qMJLZeRAb3SyyiGfot.webp',
+            diameter: { min: 8, max: 80, unit: 'mm' },
+            material: 'Steel',
+          },
+        ],
+      },
+      {
+        id: 'lss-precision',
+        name: 'شافتهای دقیق',
+        nameEn: 'Precision Linear Shafts',
+        products: [
+          {
+            id: 'lss-precision-1',
+            name: 'شافت لاینر دقیق',
+            nameEn: 'Precision Linear Shaft',
+            description: 'شافتهای فولادی لاینر با دقت بالا',
+            descriptionEn: 'High-precision linear steel shafts',
+            specs: ['Diameter: 8-80mm', 'Polished Finish', 'g6 Tolerance', 'ISO 9001'],
+            image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/linear-steel-shafts-B8q2qMJLZeRAb3SyyiGfot.webp',
+            diameter: { min: 8, max: 80, unit: 'mm' },
+            material: 'Steel',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getCategoryById(id: string): ProductCategory | undefined {
