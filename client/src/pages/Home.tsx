@@ -1,11 +1,42 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2, Award, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export default function Home() {
   const { t, language, isRTL } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Touch/Swipe support
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const minSwipeDistance = 50;
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = null;
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const isSwipe = Math.abs(distance) > minSwipeDistance;
+    if (isSwipe) {
+      if (distance > 0) {
+        // Swiped left → next slide (or prev in RTL)
+        isRTL ? prevSlide() : nextSlide();
+      } else {
+        // Swiped right → prev slide (or next in RTL)
+        isRTL ? nextSlide() : prevSlide();
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  }, [isRTL]);
 
   const heroSlides = [
     {
@@ -86,7 +117,12 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section - Carousel Slider */}
-      <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-gray-900">
+      <section
+        className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-gray-900 touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Carousel Images */}
         <div className="relative w-full h-full">
           {heroSlides.map((slide, index) => (
