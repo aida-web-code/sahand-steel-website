@@ -1,18 +1,26 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useLocation } from 'wouter';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { getCategoryById } from '@/lib/products';
+import { getCategoryById, Product } from '@/lib/products';
+import ProductFilter from '@/components/ProductFilter';
 
 export default function CategoryDetail() {
   const { language, isRTL } = useLanguage();
   const [location] = useLocation();
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   
   // Extract category ID from URL
   const pathParts = location.split('/').filter(Boolean);
   const categoryId = pathParts[1];
 
   const category = getCategoryById(categoryId);
+  
+  // Initialize filtered products when category changes
+  if (category && filteredProducts.length === 0) {
+    setFilteredProducts(category.products);
+  }
 
   if (!category) {
     return (
@@ -74,8 +82,38 @@ export default function CategoryDetail() {
             {language === 'fa' ? 'محصولات این دسته' : 'Products in This Category'}
           </h2>
 
+          {/* Filter Component */}
+          {category && (
+            <ProductFilter 
+              products={category.products} 
+              onFilter={setFilteredProducts}
+            />
+          )}
+
+          {/* Results Count */}
+          {filteredProducts.length > 0 && (
+            <p className="text-sm text-muted-foreground mb-6">
+              {language === 'fa' 
+                ? `${filteredProducts.length} محصول یافت شد`
+                : `${filteredProducts.length} product(s) found`
+              }
+            </p>
+          )}
+
+          {/* No Results Message */}
+          {filteredProducts.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-lg text-muted-foreground">
+                {language === 'fa' 
+                  ? 'محصولی با این معیارها یافت نشد'
+                  : 'No products found matching your criteria'
+                }
+              </p>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {category.products.map((product) => (
+            {filteredProducts.map((product) => (
               <div
                 key={product.id}
                 className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"

@@ -6,6 +6,10 @@ export interface Product {
   descriptionEn: string;
   specs: string[];
   image: string;
+  diameter?: { min: number; max: number; unit: string };
+  alloyType?: string;
+  coating?: string;
+  material?: string;
 }
 
 export interface ProductCategory {
@@ -33,6 +37,10 @@ export const productCategories: ProductCategory[] = [
         descriptionEn: 'Standard quality hard chrome shafts',
         specs: ['Diameter: 6-100mm', 'Chrome Coating: 0.5-1.5mm', 'ISO/ASTM Standard', 'Custom Length'],
         image: '/manus-storage/oZDfuFnlvq5Z_60145ccf.png',
+        diameter: { min: 6, max: 100, unit: 'mm' },
+        alloyType: 'Carbon Steel',
+        coating: 'Hard Chrome',
+        material: 'Steel',
       },
     ],
   },
@@ -51,6 +59,10 @@ export const productCategories: ProductCategory[] = [
         descriptionEn: 'NI series linear shafts',
         specs: ['Diameter: 6-100mm', 'Ground Finish', 'High Precision', 'Custom Length'],
         image: '/manus-storage/fFekMuOQk8ne_b82c4082.jpg',
+        diameter: { min: 6, max: 100, unit: 'mm' },
+        alloyType: 'Alloy Steel',
+        coating: 'Ground Finish',
+        material: 'Steel',
       },
     ],
   },
@@ -69,6 +81,10 @@ export const productCategories: ProductCategory[] = [
         descriptionEn: 'Cemented steel with nickel content',
         specs: ['Precision Cutting', 'Expert Engineers', 'Advanced Equipment', 'Construction Analysis'],
         image: '/manus-storage/DVyYGofaqCZ5_8d2cbd3f.jpg',
+        diameter: { min: 10, max: 80, unit: 'mm' },
+        alloyType: 'Nickel-containing Alloy',
+        coating: 'Cemented',
+        material: 'Steel',
       },
       {
         id: 'cs-2',
@@ -78,6 +94,10 @@ export const productCategories: ProductCategory[] = [
         descriptionEn: 'Cemented steel without nickel content',
         specs: ['Precision Cutting', 'Expert Engineers', 'Advanced Equipment', 'Construction Analysis'],
         image: '/manus-storage/2nI6Tm5kVFQK_849123ec.jpg',
+        diameter: { min: 10, max: 80, unit: 'mm' },
+        alloyType: 'Carbon Steel',
+        coating: 'Cemented',
+        material: 'Steel',
       },
     ],
   },
@@ -96,6 +116,10 @@ export const productCategories: ProductCategory[] = [
         descriptionEn: 'High-quality steel for plastic molds',
         specs: ['High Precision', 'ISO/ASTM Standard', 'Custom Sizes', 'Quality Assured'],
         image: '/manus-storage/moBKeT03AhYw_16672f38.webp',
+        diameter: { min: 20, max: 150, unit: 'mm' },
+        alloyType: 'Tool Steel',
+        coating: 'None',
+        material: 'Steel',
       },
     ],
   },
@@ -114,6 +138,10 @@ export const productCategories: ProductCategory[] = [
         descriptionEn: 'Tubes with hard chrome plating',
         specs: ['Diameter: 20-200mm', 'Chrome Coating: 0.5-1.5mm', 'ISO/ASTM Standard', 'Custom Length'],
         image: '/manus-storage/chrome_cylinder_tubes_da831614.png',
+        diameter: { min: 20, max: 200, unit: 'mm' },
+        alloyType: 'Carbon Steel',
+        coating: 'Hard Chrome',
+        material: 'Steel',
       },
     ],
   },
@@ -132,6 +160,10 @@ export const productCategories: ProductCategory[] = [
         descriptionEn: 'High-precision cylinder tubes (honed)',
         specs: ['Diameter: 20-200mm', 'Honed Surface', 'ISO/ASTM Standard', 'Custom Length', 'For Hydraulic Systems'],
         image: '/manus-storage/honed-cylinder-tubes_bf8b83db.png',
+        diameter: { min: 20, max: 200, unit: 'mm' },
+        alloyType: 'Alloy Steel',
+        coating: 'Honed',
+        material: 'Steel',
       },
     ],
   },
