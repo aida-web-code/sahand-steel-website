@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useLocation } from 'wouter';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { getCategoryById, getAllProductsInCategory, Product } from '@/lib/products';
@@ -17,12 +17,22 @@ export default function CategoryDetail() {
 
   const category = getCategoryById(categoryId);
   
+  // Memoize products array to prevent new reference on every render
+  const allProducts = useMemo(() => {
+    return category ? getAllProductsInCategory(categoryId) : [];
+  }, [categoryId, category]);
+
   // Initialize filtered products when category changes
   useEffect(() => {
     if (category) {
-      setFilteredProducts(getAllProductsInCategory(categoryId));
+      setFilteredProducts(allProducts);
     }
-  }, [categoryId, category])
+  }, [allProducts, category]);
+
+  // Stable callback reference for filter
+  const handleFilter = useCallback((filtered: Product[]) => {
+    setFilteredProducts(filtered);
+  }, []);
 
   if (!category) {
     return (
@@ -87,8 +97,8 @@ export default function CategoryDetail() {
           {/* Filter Component */}
           {category && (
             <ProductFilter 
-              products={getAllProductsInCategory(categoryId)} 
-              onFilter={setFilteredProducts}
+              products={allProducts} 
+              onFilter={handleFilter}
               categoryId={categoryId}
             />
           )}
