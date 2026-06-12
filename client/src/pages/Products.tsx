@@ -48,7 +48,7 @@ export default function Products() {
                   <img
                     src={category.products[0]?.image}
                     alt={language === 'fa' ? category.name : category.nameEn}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500 ease-out"
                   />
                 </div>
 
