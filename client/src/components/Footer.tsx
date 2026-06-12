@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <h3 className="font-bold text-lg mb-4">
-              {language === 'fa' ? 'سهند فولاد' : 'Sahand Steel'}
+              {language === 'fa' ? 'بازرگانی فولادهای آلیاژی سهند' : 'Sahand Steel'}
             </h3>
             <p className="text-white/80 text-sm leading-relaxed">
               {language === 'fa'
@@ -81,7 +81,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/70">
             <p>
               {language === 'fa'
-                ? '© 2026 سهند فولاد. تمام حقوق محفوظ است.'
+                ? '© 2026 بازرگانی فولادهای آلیاژی سهند. تمام حقوق محفوظ است.'
                 : '© 2026 Sahand Steel. All rights reserved.'}
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">

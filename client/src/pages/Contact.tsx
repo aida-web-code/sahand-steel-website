@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function Contact() {
   const { t, language, isRTL } = useLanguage();
@@ -15,20 +16,59 @@ export default function Contact() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      setSubmitted(false);
-    }, 3000);
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xyzjkqvn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: `New Contact Form Submission: ${formData.subject}`,
+        }),
+      });
+
+      if (response.ok) {
+        toast.success(
+          language === 'fa'
+            ? 'پیام شما با موفقیت ارسال شد!'
+            : 'Your message has been sent successfully!'
+        );
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 3000);
+      } else {
+        toast.error(
+          language === 'fa'
+            ? 'خطا در ارسال پیام. لطفاً دوباره تلاش کنید.'
+            : 'Error sending message. Please try again.'
+        );
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error(
+        language === 'fa'
+          ? 'خطا در ارسال پیام. لطفاً دوباره تلاش کنید.'
+          : 'Error sending message. Please try again.'
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -178,9 +218,13 @@ export default function Contact() {
                   type="submit"
                   size="lg"
                   className="w-full bg-primary hover:bg-primary/90 text-white"
-                  disabled={submitted}
+                  disabled={submitted || isLoading}
                 >
-                  {submitted
+                  {isLoading
+                    ? language === 'fa'
+                      ? 'در حال ارسال...'
+                      : 'Sending...'
+                    : submitted
                     ? language === 'fa'
                       ? 'ارسال شد!'
                       : 'Sent!'

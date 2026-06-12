@@ -29,11 +29,11 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                {language === 'fa' ? 'درباره سهند فولاد' : 'About Sahand Steel'}
+                {language === 'fa' ? 'درباره بازرگانی فولادهای آلیاژی سهند' : 'About Sahand Steel'}
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 {language === 'fa'
-                  ? 'سهند فولاد یکی از پیشرو‌ترین تامین‌کنندگان فولادهای صنعتی در ایران است. با 38 سال تجربه، ما متخصص در تولید و تامین میله‌های روکش کروم، لوله‌های سیلندری، میله‌های پیستون و شفت‌های خطی برای صنایع مختلف ایران هستیم.'
+                  ? 'بازرگانی فولادهای آلیاژی سهند یکی از پیشرو‌ترین تامین‌کنندگان فولادهای صنعتی در ایران است. با 38 سال تجربه، ما متخصص در توليد و تامین میله‌های روکش کروم، لوله‌های سیلندری، میله‌های پیستون و شفت‌های خطی برای صناعی مختلف ایران هستیم.'
                   : 'Sahand Steel is one of the leading industrial steel suppliers in Iran. With 38 years of experience, we specialize in manufacturing and supplying chrome plated bars, cylinder tubes, piston rods, and linear shafts for various Iranian industries.'}
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">

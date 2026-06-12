@@ -28,7 +28,7 @@ export default function Certificates() {
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {language === 'fa'
-                ? 'تمام محصولات سهند فولاد دارای گواهی‌نامه‌های بین‌المللی و استانداردهای معتبر هستند'
+                ? 'تمام محصولات بازرگانی فولادهای آلیاژی سهند دارای گواهی‌نامه‌های بین‌المللی و استانداردهای معتبر هستند'
                 : 'All Sahand Steel products have international certifications and valid standards'}
             </p>
           </div>
