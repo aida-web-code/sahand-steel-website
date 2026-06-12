@@ -131,7 +131,7 @@ export const productCategories: ProductCategory[] = [
         description: 'لوله‌های سیلندری داخل سنگخورده با دقات بالا',
         descriptionEn: 'High-precision cylinder tubes (honed)',
         specs: ['Diameter: 20-200mm', 'Honed Surface', 'ISO/ASTM Standard', 'Custom Length', 'For Hydraulic Systems'],
-        image: '/manus-storage/1Mk1MGc6MRdv_3565c3e9.jpg',
+        image: '/manus-storage/honed-cylinder-tubes_bf8b83db.png',
       },
     ],
   },
