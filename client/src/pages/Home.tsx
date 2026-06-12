@@ -76,7 +76,7 @@ export default function Home() {
       name: language === 'fa' ? 'شفت‌های خطی' : 'Linear Shaft',
       desc: language === 'fa' ? 'شفت‌های خطی دقیق' : 'Precision linear shafts',
       specs: ['Diameter: 6-50mm', 'Tolerance: ±0.005mm', 'ISO 9001'],
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/manufacturing-facility-7mJQnHvKvqKjHqmQqKzfBc.webp',
+      image: '/manus-storage/LinearShaft_8a1e36e4.png',
     },
     {
       id: 'honed-tube',
