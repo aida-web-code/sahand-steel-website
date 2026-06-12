@@ -12,6 +12,7 @@ export default function Header() {
     { key: 'nav.home', href: '/' },
     { key: 'nav.products', href: '/products' },
     { key: 'nav.about', href: '/about' },
+    { key: 'nav.faq', href: '/faq' },
   ];
 
   return (
@@ -47,6 +48,17 @@ export default function Header() {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => {
+                if (item.key === 'nav.faq') {
+                  return (
+                    <a
+                      key={item.key}
+                      href={item.href}
+                      className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded transition-all duration-200"
+                    >
+                      {language === 'fa' ? 'سوالات متداول' : 'FAQ'}
+                    </a>
+                  );
+                }
                 if (item.key === 'nav.products') {
                   return (
                     <div key={item.key} className="relative group">
@@ -133,6 +145,18 @@ export default function Header() {
           {mobileMenuOpen && (
             <nav className="lg:hidden border-t border-gray-200 py-4 space-y-2 mb-4">
               {navItems.map((item) => {
+                if (item.key === 'nav.faq') {
+                  return (
+                    <a
+                      key={item.key}
+                      href={item.href}
+                      className="block px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {language === 'fa' ? 'سوالات متداول' : 'FAQ'}
+                    </a>
+                  );
+                }
                 if (item.key === 'nav.products') {
                   return (
                     <div key={item.key}>

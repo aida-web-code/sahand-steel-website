@@ -12,6 +12,7 @@ import FloatingBackToTop from "./components/FloatingBackToTop";
 import MobileBottomNav from "./components/MobileBottomNav";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import FAQ from "./pages/FAQ";
 import Products from "./pages/Products";
 
 import Quality from "./pages/Quality";
@@ -37,6 +38,7 @@ function Router() {
       <Route path="/certificates" component={Certificates} />
       <Route path="/blog" component={Blog} />
       <Route path="/contact" component={Contact} />
+      <Route path="/faq" component={FAQ} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
