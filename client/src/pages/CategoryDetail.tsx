@@ -123,6 +123,111 @@ export default function CategoryDetail() {
         </div>
       </section>
 
+      {/* Technical Specifications Section - Only for Honed Tubes */}
+      {categoryId === 'honed-tube' && (
+        <section className="py-16 md:py-24 bg-white border-t border-gray-200">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-12 text-center">
+              {language === 'fa' ? 'مشخصات فنی' : 'Technical Specifications'}
+            </h2>
+            
+            {/* Specifications Table */}
+            <div className="overflow-x-auto mb-12">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-primary text-white">
+                    <th className="border border-gray-300 px-4 py-3 text-right">
+                      {language === 'fa' ? 'مشخصه' : 'Specification'}
+                    </th>
+                    <th className="border border-gray-300 px-4 py-3 text-right">
+                      {language === 'fa' ? 'مقدار' : 'Value'}
+                    </th>
+                    <th className="border border-gray-300 px-4 py-3 text-right">
+                      {language === 'fa' ? 'واحد' : 'Unit'}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-3">
+                      {language === 'fa' ? 'قطر داخلی' : 'Inner Diameter'}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3">10 - 200</td>
+                    <td className="border border-gray-300 px-4 py-3">mm</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-3">
+                      {language === 'fa' ? 'ضخامت دیواره' : 'Wall Thickness'}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3">2 - 16</td>
+                    <td className="border border-gray-300 px-4 py-3">mm</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-3">
+                      {language === 'fa' ? 'طول' : 'Length'}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3">500 - 6000</td>
+                    <td className="border border-gray-300 px-4 py-3">mm</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-3">
+                      {language === 'fa' ? 'زبری سطح (Ra)' : 'Surface Roughness (Ra)'}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3">0.2 - 0.8</td>
+                    <td className="border border-gray-300 px-4 py-3">μm</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-3">
+                      {language === 'fa' ? 'تحمل ابعادی' : 'Dimensional Tolerance'}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3">±0.05</td>
+                    <td className="border border-gray-300 px-4 py-3">mm</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-3">
+                      {language === 'fa' ? 'استاندارد' : 'Standard'}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3">ISO 9001, DIN 2391</td>
+                    <td className="border border-gray-300 px-4 py-3">-</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-3">
+                      {language === 'fa' ? 'فشار کاری' : 'Working Pressure'}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3">210 - 280</td>
+                    <td className="border border-gray-300 px-4 py-3">bar</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-3">
+                      {language === 'fa' ? 'دمای کاری' : 'Working Temperature'}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3">-20 to +80</td>
+                    <td className="border border-gray-300 px-4 py-3">°C</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Download Catalog Button */}
+            <div className="text-center">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white"
+                onClick={() => {
+                  // Create a simple PDF download link
+                  const link = document.createElement('a');
+                  link.href = '#';
+                  link.download = language === 'fa' ? 'کاتالوگ_لوله_سیلندری.pdf' : 'Cylinder_Tube_Catalog.pdf';
+                  link.click();
+                }}
+              >
+                {language === 'fa' ? '📥 دانلود کاتالوگ کامل' : '📥 Download Full Catalog'}
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
