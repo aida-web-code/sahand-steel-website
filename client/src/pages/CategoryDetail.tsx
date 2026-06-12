@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useLocation } from 'wouter';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { getCategoryById, getAllProductsInCategory, Product } from '@/lib/products';
@@ -18,9 +18,11 @@ export default function CategoryDetail() {
   const category = getCategoryById(categoryId);
   
   // Initialize filtered products when category changes
-  if (category && filteredProducts.length === 0) {
-    setFilteredProducts(getAllProductsInCategory(categoryId));
-  }
+  useEffect(() => {
+    if (category) {
+      setFilteredProducts(getAllProductsInCategory(categoryId));
+    }
+  }, [categoryId, category])
 
   if (!category) {
     return (

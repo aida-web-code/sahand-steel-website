@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -42,8 +42,8 @@ export default function ProductFilter({ products, onFilter, categoryId }: Produc
   }, [products]);
 
   // Filter products based on all criteria
-  useMemo(() => {
-    const filtered = products.filter(product => {
+  const filteredProducts = useMemo(() => {
+    return products.filter(product => {
       // Search query filter
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
@@ -76,9 +76,12 @@ export default function ProductFilter({ products, onFilter, categoryId }: Produc
 
       return true;
     });
+  }, [searchQuery, selectedAlloyType, selectedCoating, diameterMin, diameterMax, products]);
 
-    onFilter(filtered);
-  }, [searchQuery, selectedAlloyType, selectedCoating, diameterMin, diameterMax, products, onFilter]);
+  // Call onFilter in useEffect to avoid setState during render
+  useEffect(() => {
+    onFilter(filteredProducts);
+  }, [filteredProducts, onFilter])
 
   const handleReset = () => {
     resetFilters();
