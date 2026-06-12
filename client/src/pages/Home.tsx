@@ -9,24 +9,20 @@ export default function Home() {
 
   const heroSlides = [
     {
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hero-chrome-bars-46HBD8CLvQy8N5Z5Hogj8q.webp',
-      alt: 'Chrome Plated Bars',
+      image: '/manus-storage/Honed-Tube_eadb81e3.jpg',
+      alt: 'Honed Cylinder Tubes',
     },
     {
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/hydraulic-system-EHVhKJhvQvfFMHyYxLkXQu.webp',
-      alt: 'Hydraulic Systems',
+      image: '/manus-storage/slide_02_bdea1725.webp',
+      alt: 'Steel Tubes Collection',
     },
     {
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/steel-warehouse-8Tz4Dq6vvHfmNQKjXrH2Qm.webp',
-      alt: 'Steel Warehouse',
+      image: '/manus-storage/Gemini_Generated_Image_nyzndonyzndonyzn_0154aa40.png',
+      alt: 'Steel Plates',
     },
     {
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/manufacturing-facility-7mJQnHvKvqKjHqmQqKzfBc.webp',
-      alt: 'Manufacturing Facility',
-    },
-    {
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663750195236/eHvbcoMfvBAtmw5BhrQUsd/quality-inspection-LXDSSjAGNKKE7EsDnBQeXx.webp',
-      alt: 'Quality Inspection',
+      image: '/manus-storage/Carbon-Steel-Seamless-Round-Pipe1_5707c009.jpg',
+      alt: 'Carbon Steel Seamless Pipes',
     },
   ];
 
