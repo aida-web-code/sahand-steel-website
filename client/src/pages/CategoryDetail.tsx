@@ -188,8 +188,8 @@ export default function CategoryDetail() {
                 className="bg-primary hover:bg-primary/90 text-white"
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = '#';
-                  link.download = language === 'fa' ? 'کاتالوگ_شافت_هارد_کروم.pdf' : 'Hard_Chrome_Shaft_Catalog.pdf';
+                  link.href = '/catalogs/Hard_Chrome_Shafts_Catalog.pdf';
+                  link.download = language === 'fa' ? 'کاتالوگ_شافت_هارد_کروم.pdf' : 'Hard_Chrome_Shafts_Catalog.pdf';
                   link.click();
                 }}
               >
@@ -259,8 +259,8 @@ export default function CategoryDetail() {
                 className="bg-primary hover:bg-primary/90 text-white"
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = '#';
-                  link.download = language === 'fa' ? 'کاتالوگ_شافت_لاینر.pdf' : 'Linear_Shaft_Catalog.pdf';
+                  link.href = '/catalogs/Linear_Shafts_Catalog.pdf';
+                  link.download = language === 'fa' ? 'کاتالوگ_شافت_لاینر.pdf' : 'Linear_Shafts_Catalog.pdf';
                   link.click();
                 }}
               >
@@ -361,10 +361,9 @@ export default function CategoryDetail() {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white"
                 onClick={() => {
-                  // Create a simple PDF download link
                   const link = document.createElement('a');
-                  link.href = '#';
-                  link.download = language === 'fa' ? 'کاتالوگ_لوله_سیلندری.pdf' : 'Cylinder_Tube_Catalog.pdf';
+                  link.href = '/catalogs/Cylinder_Tubes_Catalog.pdf';
+                  link.download = language === 'fa' ? 'کاتالوگ_لوله_سیلندری.pdf' : 'Cylinder_Tubes_Catalog.pdf';
                   link.click();
                 }}
               >
@@ -434,7 +433,7 @@ export default function CategoryDetail() {
                 className="bg-primary hover:bg-primary/90 text-white"
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = '#';
+                  link.href = '/catalogs/Cemented_Steel_Catalog.pdf';
                   link.download = language === 'fa' ? 'کاتالوگ_فولاد_سمانته.pdf' : 'Cemented_Steel_Catalog.pdf';
                   link.click();
                 }}
@@ -505,7 +504,7 @@ export default function CategoryDetail() {
                 className="bg-primary hover:bg-primary/90 text-white"
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = '#';
+                  link.href = '/catalogs/Plastic_Mold_Steel_Catalog.pdf';
                   link.download = language === 'fa' ? 'کاتالوگ_فولاد_قالب_پلاستیک.pdf' : 'Plastic_Mold_Steel_Catalog.pdf';
                   link.click();
                 }}
