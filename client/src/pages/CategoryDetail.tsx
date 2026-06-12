@@ -87,6 +87,7 @@ export default function CategoryDetail() {
             <ProductFilter 
               products={category.products} 
               onFilter={setFilteredProducts}
+              categoryId={categoryId}
             />
           )}
 

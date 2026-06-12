@@ -1,22 +1,33 @@
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { X, Search } from 'lucide-react';
 import { Product } from '@/lib/products';
+import { useFilterState } from '@/hooks/useFilterState';
 
 interface ProductFilterProps {
   products: Product[];
   onFilter: (filteredProducts: Product[]) => void;
+  categoryId: string;
 }
 
-export default function ProductFilter({ products, onFilter }: ProductFilterProps) {
+export default function ProductFilter({ products, onFilter, categoryId }: ProductFilterProps) {
   const { language, isRTL } = useLanguage();
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedAlloyType, setSelectedAlloyType] = useState<string>('');
-  const [selectedCoating, setSelectedCoating] = useState<string>('');
-  const [diameterMin, setDiameterMin] = useState<number | null>(null);
-  const [diameterMax, setDiameterMax] = useState<number | null>(null);
+  const {
+    searchQuery,
+    setSearchQuery,
+    selectedAlloyType,
+    setSelectedAlloyType,
+    selectedCoating,
+    setSelectedCoating,
+    diameterMin,
+    setDiameterMin,
+    diameterMax,
+    setDiameterMax,
+    resetFilters,
+    isLoaded,
+  } = useFilterState(categoryId);
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Extract unique filter options
@@ -70,14 +81,15 @@ export default function ProductFilter({ products, onFilter }: ProductFilterProps
   }, [searchQuery, selectedAlloyType, selectedCoating, diameterMin, diameterMax, products, onFilter]);
 
   const handleReset = () => {
-    setSearchQuery('');
-    setSelectedAlloyType('');
-    setSelectedCoating('');
-    setDiameterMin(null);
-    setDiameterMax(null);
+    resetFilters();
   };
 
   const hasActiveFilters = searchQuery || selectedAlloyType !== '' || selectedCoating !== '' || diameterMin !== null || diameterMax !== null;
+
+  // Don't render until filters are loaded from localStorage
+  if (!isLoaded) {
+    return null;
+  }
 
   return (
     <div className={`bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8 ${isRTL ? 'rtl' : 'ltr'}`}>
