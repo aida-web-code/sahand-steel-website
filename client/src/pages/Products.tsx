@@ -46,7 +46,7 @@ export default function Products() {
                 {/* Product Image */}
                 <div className="w-full h-48 bg-gray-100 overflow-hidden flex items-center justify-center border-b border-gray-200">
                   <img
-                    src={category.products[0]?.image}
+                    src={category.image}
                     alt={language === 'fa' ? category.name : category.nameEn}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500 ease-out"
                   />
@@ -63,11 +63,13 @@ export default function Products() {
 
                   {/* Specs */}
                   <div className="mb-6 space-y-2">
-                    {category.products[0]?.specs.slice(0, 3).map((spec: string, idx: number) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                        <span className="text-muted-foreground">{spec}</span>
-                      </div>
+                    {category.subcategories.map((sub, idx) => (
+                      idx < 3 && (
+                        <div key={idx} className="flex items-center gap-2 text-sm">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                          <span className="text-muted-foreground">{language === 'fa' ? sub.name : sub.nameEn}</span>
+                        </div>
+                      )
                     ))}
                   </div>
 

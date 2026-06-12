@@ -3,7 +3,7 @@ import { useLocation } from 'wouter';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { getCategoryById, Product } from '@/lib/products';
+import { getCategoryById, getAllProductsInCategory, Product } from '@/lib/products';
 import ProductFilter from '@/components/ProductFilter';
 
 export default function CategoryDetail() {
@@ -19,7 +19,7 @@ export default function CategoryDetail() {
   
   // Initialize filtered products when category changes
   if (category && filteredProducts.length === 0) {
-    setFilteredProducts(category.products);
+    setFilteredProducts(getAllProductsInCategory(categoryId));
   }
 
   if (!category) {
@@ -85,7 +85,7 @@ export default function CategoryDetail() {
           {/* Filter Component */}
           {category && (
             <ProductFilter 
-              products={category.products} 
+              products={getAllProductsInCategory(categoryId)} 
               onFilter={setFilteredProducts}
               categoryId={categoryId}
             />

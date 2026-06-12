@@ -2,7 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { getCategoryById, getProductById } from '@/lib/products';
+import { getCategoryById, getProductById, getAllProductsInCategory, Product as ProductType } from '@/lib/products';
 
 export default function ProductDetailPage() {
   const { language, isRTL } = useLanguage();
@@ -173,7 +173,7 @@ export default function ProductDetailPage() {
             {language === 'fa' ? 'محصولات مرتبط' : 'Related Products'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {category.products.slice(0, 3).map((related) => (
+            {getAllProductsInCategory(categoryId).slice(0, 3).map((related: ProductType) => (
               <div
                 key={related.id}
                 className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
