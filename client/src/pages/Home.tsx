@@ -6,6 +6,19 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 export default function Home() {
   const { t, language, isRTL } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Pause autoplay during interaction, resume after 3 seconds of inactivity
+  const pauseAutoplay = useCallback(() => {
+    setIsPaused(true);
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+    }
+    resumeTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 3000);
+  }, []);
 
   // Touch/Swipe support
   const touchStartX = useRef<number | null>(null);
@@ -15,7 +28,8 @@ export default function Home() {
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
     touchEndX.current = null;
-  }, []);
+    pauseAutoplay();
+  }, [pauseAutoplay]);
 
   const handleTouchMove = useCallback((e: React.TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
@@ -58,22 +72,35 @@ export default function Home() {
   ];
 
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [heroSlides.length]);
+  }, [heroSlides.length, isPaused]);
+
+  // Cleanup resume timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (resumeTimeoutRef.current) {
+        clearTimeout(resumeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    pauseAutoplay();
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    pauseAutoplay();
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
+    pauseAutoplay();
   };
 
   const products = [
