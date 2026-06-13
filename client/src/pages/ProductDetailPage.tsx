@@ -121,46 +121,84 @@ export default function ProductDetailPage() {
         </div>
       </section>
 
-      {/* Product Details */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      {/* Detailed Description */}
+      {(product.detailedDescription || product.detailedDescriptionEn) && (
+        <section className="py-16 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-bold mb-6 text-foreground">
+              {language === 'fa' ? 'توضیحات کامل محصول' : 'Product Description'}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed text-lg max-w-4xl">
+              {language === 'fa' ? product.detailedDescription : product.detailedDescriptionEn}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* Features & Applications */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Description */}
+            {/* Features */}
             <div>
               <h2 className="text-2xl font-bold mb-6 text-foreground">
-                {language === 'fa' ? 'درباره این محصول' : 'About This Product'}
+                {language === 'fa' ? 'ویژگی‌های کلیدی' : 'Key Features'}
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                {language === 'fa'
-                  ? 'این محصول با استفاده از بهترین فناوری‌های تولیدی و کنترل کیفیت سخت تولید می‌شود. ما تضمین می‌دهیم که هر محصول با استانداردهای بین‌المللی مطابقت دارد.'
-                  : 'This product is manufactured using the latest production technologies and strict quality control. We guarantee that every product meets international standards.'}
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                {language === 'fa'
-                  ? 'تیم متخصص ما آماده است تا برای نیازهای خاص شما راه‌حل‌های سفارشی ارائه دهد.'
-                  : 'Our expert team is ready to provide customized solutions for your specific needs.'}
-              </p>
+              {product.features && product.featuresEn ? (
+                <ul className="space-y-4">
+                  {(language === 'fa' ? product.features : product.featuresEn).map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground leading-relaxed">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="space-y-4">
+                  {[
+                    language === 'fa' ? 'کیفیت بالا و استانداردهای بین‌المللی' : 'High quality and international standards',
+                    language === 'fa' ? 'قیمت رقابتی' : 'Competitive pricing',
+                    language === 'fa' ? 'تحویل سریع' : 'Fast delivery',
+                    language === 'fa' ? 'پشتیبانی فنی عالی' : 'Excellent technical support',
+                    language === 'fa' ? 'سفارشی‌سازی ممکن' : 'Customization available',
+                  ].map((advantage, idx) => (
+                    <li key={idx} className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="text-foreground">{advantage}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
 
-            {/* Advantages */}
+            {/* Applications */}
             <div>
               <h2 className="text-2xl font-bold mb-6 text-foreground">
-                {language === 'fa' ? 'مزایا' : 'Advantages'}
+                {language === 'fa' ? 'کاربردها' : 'Applications'}
               </h2>
-              <ul className="space-y-4">
-                {[
-                  language === 'fa' ? 'کیفیت بالا و استانداردهای بین‌المللی' : 'High quality and international standards',
-                  language === 'fa' ? 'قیمت رقابتی' : 'Competitive pricing',
-                  language === 'fa' ? 'تحویل سریع' : 'Fast delivery',
-                  language === 'fa' ? 'پشتیبانی فنی عالی' : 'Excellent technical support',
-                  language === 'fa' ? 'سفارشی‌سازی ممکن' : 'Customization available',
-                ].map((advantage, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{advantage}</span>
-                  </li>
-                ))}
-              </ul>
+              {product.applications && product.applicationsEn ? (
+                <ul className="space-y-4">
+                  {(language === 'fa' ? product.applications : product.applicationsEn).map((app, idx) => (
+                    <li key={idx} className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="text-foreground">{app}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    {language === 'fa'
+                      ? 'این محصول با استفاده از بهترین فناوری‌های تولیدی و کنترل کیفیت سخت تولید می‌شود. ما تضمین می‌گیریم که هر محصول با استانداردهای بین‌المللی مطابقت دارد.'
+                      : 'This product is manufactured using the latest production technologies and strict quality control. We guarantee that every product meets international standards.'}
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {language === 'fa'
+                      ? 'تیم متخصص ما آماده است تا برای نیازهای خاص شما راه‌حل‌های سفارشی ارائه دهد.'
+                      : 'Our expert team is ready to provide customized solutions for your specific needs.'}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

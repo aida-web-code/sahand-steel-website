@@ -10,6 +10,12 @@ export interface Product {
   alloyType?: string;
   coating?: string;
   material?: string;
+  detailedDescription?: string;
+  detailedDescriptionEn?: string;
+  features?: string[];
+  featuresEn?: string[];
+  applications?: string[];
+  applicationsEn?: string[];
 }
 
 export interface ProductSubcategory {
@@ -566,6 +572,42 @@ export const productCategories: ProductCategory[] = [
             nameEn: 'S45C Hard Chrome Plated Steel Bar',
             description: 'میلگرد فولادی کربنی متوسط S45C با روکش کروم سخت، دارای استحکام مکانیکی بالا، مقاومت سایشی عالی و قابلیت ماشین‌کاری مناسب. ایده‌آل برای سیلندرهای هیدرولیک و پنوماتیک، ماشین‌آلات ساختمانی و دستگاه‌های تزریق پلاستیک.',
             descriptionEn: 'S45C medium carbon steel bar with hard chrome plating, featuring high mechanical strength, excellent wear resistance, and good machinability. Ideal for hydraulic/pneumatic cylinders, construction machinery, and injection molding machines.',
+            detailedDescription: 'میلگردهای فولادی S45C روکش کروم سخت خواص بنیادین فولاد کربنی متوسط را حفظ کرده و برای تولید شافت‌های دقیق و قطعات حرکت خطی بسیار مناسب هستند. این میلگردها به‌طور خاص برای کاربردهایی طراحی شده‌اند که نیاز به ظرفیت تحمل بار بالا، مقاومت سایشی برتر و یکپارچگی ساختاری قابل اعتماد دارند.',
+            detailedDescriptionEn: 'S45C Hard Chrome Plated Steel Bars retain the fundamental properties of medium carbon steel, making them highly suitable for the production of precision shafts and linear motion components. These bars are specifically engineered for applications requiring high load-bearing capacity, superior wear resistance, and reliable structural integrity.',
+            features: [
+              'استحکام مکانیکی بالا: مقاومت کششی و تسلیم عالی برای تحمل تنش‌های مکانیکی مختلف شامل بارهای دورانی، خمشی و ضربه‌ای',
+              'سختی سطحی افزایش‌یافته: از طریق فرآیندهای عملیات حرارتی کنترل‌شده مانند کوئنچ و تمپر، سختی ماده به‌طور قابل توجهی افزایش می‌یابد',
+              'چقرمگی ضربه‌ای متعادل: علی‌رغم دستیابی به سختی سطحی بالا، ماده چقرمگی هسته کافی برای جذب شوک و مقاومت در برابر تغییر شکل را حفظ می‌کند',
+              'قابلیت ماشین‌کاری عالی: S45C به دلیل ماشین‌کاری پایدار شناخته شده و امکان عملیات تراشکاری، فرزکاری، سوراخکاری و سنگ‌زنی کارآمد را فراهم می‌کند',
+              'مقاومت سایشی برتر: پس از سخت‌کاری سطحی و آبکاری کروم سخت، دوام استثنایی برای قطعات با اصطکاک بالا',
+              'پاسخ‌دهی مناسب به عملیات حرارتی: ماده به فرآیندهای مختلف عملیات حرارتی به‌صورت قابل پیش‌بینی پاسخ می‌دهد',
+              'قابلیت جوشکاری کنترل‌شده: با پیش‌گرمایش و عملیات حرارتی پس از جوش مناسب، قابل جوشکاری است',
+            ],
+            featuresEn: [
+              'High Mechanical Strength: Excellent tensile and yield strength for withstanding rotational, bending, and impact loads',
+              'Enhanced Surface Hardness: Through controlled heat treatment (quenching and tempering), hardness is significantly increased for outstanding wear resistance',
+              'Balanced Impact Toughness: Maintains sufficient core toughness to absorb shock and resist deformation despite high surface hardness',
+              'Excellent Machinability: Stable machinability enabling efficient turning, milling, drilling, and grinding to tight tolerances',
+              'Superior Wear Resistance: After surface hardening and hard chrome plating, exceptional durability for high-friction components',
+              'Responsive Heat Treatment Characteristics: Predictable response to quenching, tempering, or induction hardening processes',
+              'Controlled Weldability: Can be successfully welded with proper preheating and post-weld heat treatment (PWHT)',
+            ],
+            applications: [
+              'سیلندرهای هیدرولیک و پنوماتیک',
+              'ماشین‌آلات ساختمانی و مهندسی',
+              'سیستم‌های هیدرولیک خودرو',
+              'دستگاه‌های تزریق پلاستیک',
+              'شافت‌های چرخ‌دنده و شافت‌های محرک',
+              'میل‌لنگ‌ها و قطعات اتصال',
+            ],
+            applicationsEn: [
+              'Hydraulic and Pneumatic Cylinders',
+              'Construction and Engineering Machinery',
+              'Automotive Hydraulic Systems',
+              'Plastic Injection Molding Machines',
+              'Gear Shafts and Drive Shafts',
+              'Connecting Rods and Linkage Components',
+            ],
             specs: ['Material: JIS S45C / SAE1045 / DIN CK45 / EN8', 'Chrome Layer Thickness: <Φ20: 15μm min / ≥Φ20: 20μm min', 'Chrome Layer Hardness: HV850 min (0.1)', 'Surface Roughness: Ra 0.2μm max', 'Diameter Tolerance: ISO h7, f7, h8, f8, g6', 'Straightness: 0.3mm/M', 'Roundness: 1/2 Tolerance'],
             image: '/manus-storage/s45c-chrome-bar_7f762f25.jpg',
             diameter: { min: 6, max: 200, unit: 'mm' },
